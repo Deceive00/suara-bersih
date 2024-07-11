@@ -28,7 +28,7 @@ const Navbar = () => {
 
   return (
     <NavigationMenu
-      className={`fixed font-montserrat flex items-center justify-between p-4 p px-16 text-white w-full bg-black bg-opacity-${navbarOpacity} transition-all duration-1000 ease-in-out`}
+      className={`fixed font-montserrat flex items-center justify-between p-4 p px-16 text-white w-full bg-black bg-opacity-0 transition-all duration-1000 ease-in-out`}
     >
       {/* Logo */}
       <div className="text-lg font-bold">SuaraBersih.</div>
