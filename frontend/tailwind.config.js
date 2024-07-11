@@ -21,7 +21,7 @@ module.exports = {
         WhitePrimary: '#FFFDEF',
         WhiteSecondary: '#F1F1F1',
         RedPrimary: '#8C0909',
-        RedSecondary: '#B90B0B',
+        RedSecondary: '#E00E0E',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -56,6 +56,9 @@ module.exports = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
+      backgroundImage: theme => ({
+        'custom-radial-gradient': `radial-gradient(circle, ${theme('colors.RedSecondary')} 0%, ${theme('colors.RedPrimary')} 60%)`,
+      }),
       fontFamily: {
         montserrat: ['Montserrat', 'sans-serif'],
       },

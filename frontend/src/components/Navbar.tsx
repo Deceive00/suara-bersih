@@ -11,7 +11,7 @@ import { Button } from './ui/button';
 
 const Navbar = () => {
   return (
-    <NavigationMenu className="absolute flex items-center justify-between p-4 text-white w-full bg-transparent">
+    <NavigationMenu className="absolute flex items-center justify-between p-4 text-white w-screen bg-transparent">
       {/* Logo */}
       <div className="text-lg font-bold">SuaraBersih.</div>
 
@@ -36,7 +36,7 @@ const Navbar = () => {
       {/* Right Side */}
       <NavigationMenuList>
       <NavigationMenuItem>
-          <NavigationMenuLink className=" hover:text-blue-500 border-white border rounded-sm  px-2 py-1" href="/">Login</NavigationMenuLink>
+          <NavigationMenuLink className=" hover:text-blue-500 border-white border rounded-sm px-2 py-1" href="/">Login</NavigationMenuLink>
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
