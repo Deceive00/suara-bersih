@@ -1,3 +1,4 @@
+import axios from "axios";
 import { collection, getDocs, query, updateDoc, where } from "firebase/firestore";
 import { addData } from "src/firebase/firebase-base-function";
 import { db } from "src/firebase/firebase-config";
@@ -36,3 +37,22 @@ export const isUniqueThread = async (threadTitle: string): Promise<boolean> => {
     throw new Error("Error checking thread uniqueness");
   }
 };
+
+export const getAllThread = async () => {
+  const threadRef = collection(db, 'threads');
+  const querySnapshot = await getDocs(threadRef);
+  return querySnapshot.docs.map(doc => ({...doc.data(), threadId: doc.id}))
+}
+
+export const getThreadRecommendation = async (postTitle: string) =>{
+  const allThread = await getAllThread();
+
+  const response = await fetch("http://127.0.0.1:5000/recommendations", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ postTitle: postTitle, threads: allThread }),
+  });
+  console.log(response)
+}

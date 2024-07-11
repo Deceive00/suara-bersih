@@ -49,3 +49,4 @@ export const createPost = async (newPost: InsertPost, threadTitle?: string, thre
   await updateDoc(postRef, { ...post })
 }
 
+

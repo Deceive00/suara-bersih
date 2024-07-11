@@ -3,6 +3,7 @@ import { Input } from '@components/ui/input';
 import { Switch } from '@components/ui/switch'; // Ensure you have the Switch component from shadcn
 import { ImgInput } from '@components/upload-image/ImgInput';
 import { createPost } from '@lib/services/posts.service';
+import { getThreadRecommendation } from '@lib/services/threads.service';
 
 import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
@@ -24,7 +25,7 @@ export default function TestCreatePostPage() {
       postDescription: data.postDescription,
       postTitle: data.postTitle,
       postImages: data.postImages
-    } as InsertPost)
+    } as InsertPost);
   }, {
     onError:(error : Error) => {
       console.error("Failed to submit post");
@@ -36,7 +37,7 @@ export default function TestCreatePostPage() {
   });
 
   const {mutate: handleRecommendation} = useMutation(async() => {
-    
+    await getThreadRecommendation('271')
   }) 
 
   return (
@@ -103,7 +104,8 @@ export default function TestCreatePostPage() {
             <Input {...field} id="threadTitle" type="text" required placeholder="Description" />
           )}
         />
-        <Button type='button'>Recommendation</Button>
+
+        <Button type='button' onClick={async() => await getThreadRecommendation('271')}>Recommendation</Button>
         <Button type="submit">Submit</Button>
       </form>
     </div>
