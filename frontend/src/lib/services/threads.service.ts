@@ -54,5 +54,5 @@ export const getThreadRecommendation = async (postTitle: string) =>{
     },
     body: JSON.stringify({ postTitle: postTitle, threads: allThread }),
   });
-  console.log(response)
+  console.log(await response.json())
 }
