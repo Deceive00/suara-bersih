@@ -18,6 +18,10 @@ module.exports = {
     },
     extend: {
       colors: {
+        WhitePrimary: '#FFFDEF',
+        WhiteSecondary: '#F1F1F1',
+        RedPrimary: '#8C0909',
+        RedSecondary: '#B90B0B',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -51,6 +55,9 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+      },
+      fontFamily: {
+        montserrat: ['Montserrat', 'sans-serif'],
       },
       borderRadius: {
         lg: "var(--radius)",
