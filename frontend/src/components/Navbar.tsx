@@ -13,7 +13,7 @@ const Navbar = () => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       if (scrollPosition > 100) {
-        setNavbarOpacity(50);
+        setNavbarOpacity(85);
       } else {
         setNavbarOpacity(0);
       }
@@ -46,7 +46,7 @@ const Navbar = () => {
           </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuLink className=" hover:text-slate-300" href="/">
+          <NavigationMenuLink className=" hover:text-slate-300" href="/createpost">
             Threads
           </NavigationMenuLink>
         </NavigationMenuItem>
