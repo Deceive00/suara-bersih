@@ -7,14 +7,13 @@ import {
 import { useEffect, useState } from "react";
 
 const Navbar = () => {
-
   const [navbarOpacity, setNavbarOpacity] = useState<number>(0);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       if (scrollPosition > 100) {
-        setNavbarOpacity(20);
+        setNavbarOpacity(50);
       } else {
         setNavbarOpacity(0);
       }
@@ -26,15 +25,21 @@ const Navbar = () => {
     };
   }, []);
 
+  const navbarStyles = {
+    backgroundColor: `rgba(0, 0, 0, ${navbarOpacity / 100})`,
+    transition: 'background-color 0.3s ease-in-out',
+  };
+
   return (
     <NavigationMenu
-      className={`fixed font-montserrat flex items-center justify-between p-4 p px-16 text-white w-full bg-black bg-opacity-0 transition-all duration-1000 ease-in-out`}
+        style={navbarStyles}
+      className={`fixed font-montserrat flex items-center justify-between p-4 px-16 text-white w-full bg-black transition-all duration-1000 ease-in-out`}
     >
       {/* Logo */}
       <div className="text-lg font-bold">SuaraBersih.</div>
 
       {/* Middle Side */}
-      <NavigationMenuList className="flex space-x-10 items-center text-sm">
+      <NavigationMenuList className="flex space-x-10 items-center text-sm tracking-widest">
         <NavigationMenuItem>
           <NavigationMenuLink className=" hover:text-slate-300" href="/">
             Home
@@ -55,7 +60,7 @@ const Navbar = () => {
       <NavigationMenuList>
         <NavigationMenuItem>
           <NavigationMenuLink
-            className=" text-sm hover:text-slate-300 hover:border-slate-300 border-white border rounded-sm  px-2 py-1"
+            className="text-xs hover:text-slate-300 hover:border-slate-300 border-white border rounded-sm  px-4 py-1.5 tracking-widest"
             href="/"
           >
             Login
