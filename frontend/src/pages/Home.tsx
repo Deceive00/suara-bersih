@@ -4,16 +4,6 @@ const Home = () => {
   return (
     <div className="bg-custom-radial-gradient w-screen h-screen border-content">
       <Navbar></Navbar>
-      <img src="https://media.licdn.com/dms/image/D5603AQEIXNZ1vsXYCw/profile-displayphoto-shrink_200_200/0/1695397038206?e=2147483647&v=beta&t=FAzG7jubiCufP3bAXEroNljEw4BLYiwSRQ9C8vZN_9c" alt="Description of your image"></img>
-      <img src="https://media.licdn.com/dms/image/D5603AQEIXNZ1vsXYCw/profile-displayphoto-shrink_200_200/0/1695397038206?e=2147483647&v=beta&t=FAzG7jubiCufP3bAXEroNljEw4BLYiwSRQ9C8vZN_9c" alt="Description of your image"></img>
-      <img src="https://media.licdn.com/dms/image/D5603AQEIXNZ1vsXYCw/profile-displayphoto-shrink_200_200/0/1695397038206?e=2147483647&v=beta&t=FAzG7jubiCufP3bAXEroNljEw4BLYiwSRQ9C8vZN_9c" alt="Description of your image"></img>
-      <img src="https://media.licdn.com/dms/image/D5603AQEIXNZ1vsXYCw/profile-displayphoto-shrink_200_200/0/1695397038206?e=2147483647&v=beta&t=FAzG7jubiCufP3bAXEroNljEw4BLYiwSRQ9C8vZN_9c" alt="Description of your image"></img>
-      <img src="https://media.licdn.com/dms/image/D5603AQEIXNZ1vsXYCw/profile-displayphoto-shrink_200_200/0/1695397038206?e=2147483647&v=beta&t=FAzG7jubiCufP3bAXEroNljEw4BLYiwSRQ9C8vZN_9c" alt="Description of your image"></img>
-      <img src="https://media.licdn.com/dms/image/D5603AQEIXNZ1vsXYCw/profile-displayphoto-shrink_200_200/0/1695397038206?e=2147483647&v=beta&t=FAzG7jubiCufP3bAXEroNljEw4BLYiwSRQ9C8vZN_9c" alt="Description of your image"></img>
-      <img src="https://media.licdn.com/dms/image/D5603AQEIXNZ1vsXYCw/profile-displayphoto-shrink_200_200/0/1695397038206?e=2147483647&v=beta&t=FAzG7jubiCufP3bAXEroNljEw4BLYiwSRQ9C8vZN_9c" alt="Description of your image"></img>
-      <img src="https://media.licdn.com/dms/image/D5603AQEIXNZ1vsXYCw/profile-displayphoto-shrink_200_200/0/1695397038206?e=2147483647&v=beta&t=FAzG7jubiCufP3bAXEroNljEw4BLYiwSRQ9C8vZN_9c" alt="Description of your image"></img>
-      <img src="https://media.licdn.com/dms/image/D5603AQEIXNZ1vsXYCw/profile-displayphoto-shrink_200_200/0/1695397038206?e=2147483647&v=beta&t=FAzG7jubiCufP3bAXEroNljEw4BLYiwSRQ9C8vZN_9c" alt="Description of your image"></img>
-      <img src="https://media.licdn.com/dms/image/D5603AQEIXNZ1vsXYCw/profile-displayphoto-shrink_200_200/0/1695397038206?e=2147483647&v=beta&t=FAzG7jubiCufP3bAXEroNljEw4BLYiwSRQ9C8vZN_9c" alt="Description of your image"></img>
     </div>
   )
 }
