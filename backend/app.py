@@ -1,16 +1,52 @@
 from flask import Flask, jsonify
-from firebase.service import get_firestore_data
+from controller.search import get_levenshtein_distance_post
+from controller.recommendation import get_title_recommendations
 
 app = Flask(__name__)
 
-@app.route('/get_data')
+@app.route('/data', methods=['GET'])
 def get_data():
     try:
-        data = get_firestore_data('user')
+        objs = [{"postTitle": "tes 123 wio"}, {"postTitle": "oiiii"}]
+        data = get_levenshtein_distance_post("woi", objs)
+        
         return jsonify(data)
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-# Run the Flask app
+
+@app.route('/search', methods=['POST'])
+def handle_search(request):
+    try:
+        req_data = request.get_json()
+        
+        query = req_data.get('query')
+        objects = req_data.get('objects', [])
+
+        data = get_levenshtein_distance_post(query, objects)
+        return jsonify(data)
+    
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
 if __name__ == '__main__':
     app.run(debug=True)
+
+@app.route('/recommendations', methods=['POST'])
+def handle_recommendations(request):
+    try:
+        req_data = request.get_json()
+        
+        postTitle = req_data.get('postTitle')
+        threads = req_data.get('threads', [])
+
+        data = get_title_recommendations(postTitle, threads)
+        return jsonify(data)
+    
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
