@@ -1,42 +1,65 @@
 import {
   NavigationMenu,
-  NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
-} from '@radix-ui/react-navigation-menu';
-import { Input } from './ui/input';
-import { Button } from './ui/button';
+} from "@radix-ui/react-navigation-menu";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
+
+  const [navbarOpacity, setNavbarOpacity] = useState<number>(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      if (scrollPosition > 100) {
+        setNavbarOpacity(20);
+      } else {
+        setNavbarOpacity(0);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <NavigationMenu className="absolute flex items-center justify-between p-4 text-white w-full bg-transparent">
+    <NavigationMenu
+      className={`fixed font-montserrat flex items-center justify-between p-4 p px-16 text-white w-full bg-black bg-opacity-${navbarOpacity} transition-all duration-1000 ease-in-out`}
+    >
       {/* Logo */}
       <div className="text-lg font-bold">SuaraBersih.</div>
 
       {/* Middle Side */}
-      <NavigationMenuList className="flex space-x-10 items-center">
+      <NavigationMenuList className="flex space-x-10 items-center text-sm">
         <NavigationMenuItem>
-          <NavigationMenuLink className=" hover:text-blue-500" href="/">Home</NavigationMenuLink>
+          <NavigationMenuLink className=" hover:text-slate-300" href="/">
+            Home
+          </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuLink className=" hover:text-blue-500" href="/">Post</NavigationMenuLink>
+          <NavigationMenuLink className=" hover:text-slate-300" href="/">
+            Threads
+          </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuLink className=" hover:text-blue-500" href="/">Trending</NavigationMenuLink>
+          <NavigationMenuLink className=" hover:text-slate-300" href="/">
+            News
+          </NavigationMenuLink>
         </NavigationMenuItem>
-        <div className="flex w-full max-w-sm items-center space-x-2">
-      <Input type="text" placeholder="Search threads, posts & more..." className='min-w-80'/>
-      <Button type="submit">Find</Button>
-    </div>
       </NavigationMenuList>
-
-
       {/* Right Side */}
       <NavigationMenuList>
-      <NavigationMenuItem>
-          <NavigationMenuLink className=" hover:text-blue-500 border-white border rounded-sm  px-2 py-1" href="/">Login</NavigationMenuLink>
+        <NavigationMenuItem>
+          <NavigationMenuLink
+            className=" text-sm hover:text-slate-300 hover:border-slate-300 border-white border rounded-sm  px-2 py-1"
+            href="/"
+          >
+            Login
+          </NavigationMenuLink>
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
