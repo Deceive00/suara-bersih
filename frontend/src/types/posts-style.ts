@@ -16,6 +16,5 @@ export interface InsertPost {
   postTitle : string;
   isAnonymous : Boolean;
   postDescription: string;
-  postImages: string[];
-  threadId?: string;
+  postImages: File[];
 }
