@@ -1,8 +1,10 @@
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 from controller.search import get_levenshtein_distance_post
 from controller.recommendation import get_title_recommendations
-
+from flask_cors import CORS
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/data', methods=['GET'])
 def get_data():
@@ -21,16 +23,13 @@ def handle_search():
         req_data = request.get_json()
         
         query = req_data.get('query')
-        objects = req_data.get('objects', [])
+        threads = req_data.get('threads', [])
 
-        data = get_levenshtein_distance_post(query, objects)
+        data = get_levenshtein_distance_post(query, threads)
         return jsonify(data)
     
     except Exception as e:
         return jsonify({'error': str(e)}), 500
-
-if __name__ == '__main__':
-    app.run(debug=True)
 
 @app.route('/recommendations', methods=['POST'])
 def handle_recommendations():

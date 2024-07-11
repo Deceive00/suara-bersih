@@ -18,7 +18,8 @@ export const createThread = async (threadTitle : string) => {
     userDownvotes: [],
     threadId: ''
   } as Thread;
-
+  console.log({...newThread});
+  
   const threadRef = await addData("threads", {...newThread});
   newThread.threadId = threadRef.id
   await updateDoc(threadRef, {...newThread})
@@ -54,5 +55,6 @@ export const getThreadRecommendation = async (postTitle: string) =>{
     },
     body: JSON.stringify({ postTitle: postTitle, threads: allThread }),
   });
-  console.log(response)
+  const data = await response.json()
+  return data;
 }
