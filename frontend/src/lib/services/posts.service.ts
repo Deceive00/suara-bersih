@@ -8,7 +8,7 @@ import { updateDoc } from "firebase/firestore";
 const defaultPhoto =
 "https://firebasestorage.googleapis.com/v0/b/youpi-92b43.appspot.com/o/default.png?alt=media&token=429db833-8c08-4045-8122-ad42130f2883";
 
-export const createPost = async (newPost: InsertPost, threadTitle?: string, threadId?: string) => {
+export const createPost = async ({newPost, threadTitle, threadId} : {newPost: InsertPost, threadTitle?: string, threadId?: string}) => {
   if(newPost.postTitle === '' || newPost.postImages.length <= 0 ||
     newPost.postDescription === ''
   ){
@@ -16,7 +16,8 @@ export const createPost = async (newPost: InsertPost, threadTitle?: string, thre
   }
 
   let currentThreadId = threadId;
-
+  
+  console.log(threadTitle)
   if(threadTitle){
     currentThreadId = await createThread(threadTitle)
   }
@@ -45,6 +46,7 @@ export const createPost = async (newPost: InsertPost, threadTitle?: string, thre
     const path = `posts/${auth?.currentUser?.email}/${postRef.id}`;
     uploadedImages = await uploadMultiplePhoto(newPost.postImages, path);
   }
+  console.log(uploadedImages)
   post.postImages = uploadedImages
   await updateDoc(postRef, { ...post })
 }
