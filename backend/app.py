@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from controller.search import get_levenshtein_distance_post
 from controller.recommendation import get_title_recommendations
 
@@ -16,7 +16,7 @@ def get_data():
 
 
 @app.route('/search', methods=['POST'])
-def handle_search(request):
+def handle_search():
     try:
         req_data = request.get_json()
         
@@ -33,7 +33,7 @@ if __name__ == '__main__':
     app.run(debug=True)
 
 @app.route('/recommendations', methods=['POST'])
-def handle_recommendations(request):
+def handle_recommendations():
     try:
         req_data = request.get_json()
         
