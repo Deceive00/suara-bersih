@@ -31,14 +31,18 @@ const Navbar = () => {
   };
 
   return (
-    <NavigationMenu
+    <NavigationMenu 
         style={navbarStyles}
-      className={`fixed font-montserrat flex items-center justify-between p-4 px-16 text-white w-full bg-black transition-all duration-1000 ease-in-out`}
+<<<<<<< HEAD
+      className={`z-10 fixed font-montserrat flex items-center justify-between p-4 px-16 text-white w-full bg-black transition-all duration-1000 ease-in-out`}
+=======
+      className={`z-50 fixed font-montserrat flex items-center justify-between p-4 px-16 text-white w-full bg-black transition-all duration-1000 ease-in-out`}
+>>>>>>> refs/remotes/origin/main
     >
       {/* Logo */}
       <div className="text-lg font-bold">SuaraBersih.</div>
 
-      {/* Middle Side */}
+      {/* Middle Side */} 
       <NavigationMenuList className="flex space-x-10 items-center text-sm tracking-widest">
         <NavigationMenuItem>
           <NavigationMenuLink className=" hover:text-slate-300" href="/">
