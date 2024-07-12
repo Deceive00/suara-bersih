@@ -3,5 +3,6 @@ export interface News {
     newsTitle : string;
     newsDescription : string;
     newsReferenceLink : string;
-    // Image ??
+    newsImage : string;
+    tags : string[];
 }
