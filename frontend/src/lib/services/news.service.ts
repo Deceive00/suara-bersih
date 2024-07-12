@@ -18,7 +18,7 @@ export const getNews = async (): Promise<News[]> => {
                 newsImage: doc.data().newsImage,
                 tags: doc.data().tags,
             };
-
+            console.log(newsItem);
             news.push(newsItem);
         });
 

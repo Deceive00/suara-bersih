@@ -6,12 +6,14 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@components/ui/tooltip";
+import { useNavigate } from "react-router-dom";
 
 interface ThreadCardProps {
   thread: Thread;
 }
 
 const ThreadCard: React.FC<ThreadCardProps> = ({ thread }) => {
+  const navigate = useNavigate();
   const getStatusColor = (status: string | undefined) => {
     switch (status) {
       case "complaint filed":
@@ -28,7 +30,7 @@ const ThreadCard: React.FC<ThreadCardProps> = ({ thread }) => {
   return (
     <TooltipProvider>
       <Tooltip>
-        <TooltipTrigger asChild>
+        <TooltipTrigger asChild onClick={() => navigate(`/thread/${thread.threadId}`)}>
           <div className="card bg-white shadow-xl m-1 border-2 px-11 py-5 flex justify-between items-center">
             <div>
               <h2 className="card-title text-xl mb-5">

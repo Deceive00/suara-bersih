@@ -1,7 +1,5 @@
 import PostCard from "@components/cards/PostCard";
 import Navbar2 from "@components/Navbar2";
-import Loader from "@components/loading/loader";
-
 import {
   Card,
 
@@ -67,7 +65,7 @@ const ThreadDetail = () => {
             {
               thread && thread.posts?.map((post, index) => {
                 return (
-                  <PostCard key={index} post={post} />
+                  <PostCard key={index} post={post} isLoading={isLoading || isFetching} />
                 )
               })
             }
