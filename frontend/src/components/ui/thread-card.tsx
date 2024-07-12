@@ -41,8 +41,8 @@ const ThreadCard: React.FC<ThreadCardProps> = ({ thread }) => {
                 {thread.threadTitle}
               </h2>
               <p>{thread.status}</p>
-              <p>Upvotes: {thread.userUpvotes.length}</p>
-              <p>Downvotes: {thread.userDownvotes.length}</p>
+              <p>Upvotes: {thread?.upvotes?.length || 0}</p>
+              <p>Downvotes: {thread?.downvotes?.length || 0}</p>
             </div>
           </div>
         </TooltipTrigger>

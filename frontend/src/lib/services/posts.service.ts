@@ -5,9 +5,6 @@ import { createThread } from "./threads.service";
 import { uploadMultiplePhoto } from "./images.service";
 import { collection, getDocs, query, updateDoc, where } from "firebase/firestore";
 
-const defaultPhoto =
-"https://firebasestorage.googleapis.com/v0/b/youpi-92b43.appspot.com/o/default.png?alt=media&token=429db833-8c08-4045-8122-ad42130f2883";
-
 export const createPost = async ({newPost, threadTitle, threadId} : {newPost: InsertPost, threadTitle?: string, threadId?: string}) => {
   if(newPost.postTitle === '' || newPost.postImages.length <= 0 ||
     newPost.postDescription === ''

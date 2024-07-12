@@ -1,10 +1,10 @@
-import { Post } from "./posts-style";
+import { Post, PostFE } from "./posts-style";
 
 export interface Thread{
   threadId : string;
   threadTitle : string;
-  userUpvotes : string[];
-  userDownvotes : string[];
+  upvotes : string[];
+  downvotes : string[];
   status: string;
 }
 
@@ -12,9 +12,10 @@ export interface Thread{
 export interface ThreadFE{
   threadId : string;
   threadTitle : string;
-  userUpvotes : string[];
-  userDownvotes : string[];
+  upvotes : string[];
+  downvotes : string[];
   status: string;
   postCount?: number;
-  posts?: Post[];
+  user?:string;
+  posts?: PostFE[];
 }
