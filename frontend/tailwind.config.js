@@ -62,6 +62,7 @@ module.exports = {
       }),
       fontFamily: {
         montserrat: ['Montserrat', 'sans-serif'],
+        arsenalsc: ['ArsenalSC', 'sans-serif']
       },
       borderRadius: {
         lg: "var(--radius)",
