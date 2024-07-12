@@ -10,7 +10,7 @@ export const router = [
         element: <LandingPage />
     },
     {
-        path: "thread/detail/",
+        path: "/thread/detail/",
         element: <ThreadDetail/>
     },
     {
