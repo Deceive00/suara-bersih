@@ -1,7 +1,6 @@
 import Home from '@pages/Home';
 import './App.css'
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
-import CreatePost from '@pages/create-post-page';
 import { useEffect } from 'react';
 import { router } from '@lib/routes/routes';
 

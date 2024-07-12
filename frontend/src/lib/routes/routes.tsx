@@ -1,4 +1,4 @@
-import CreatePost from "@pages/create-post-page";
+import CreatePost from "@pages/create-post-page/create-post-page";
 import Home from "@pages/Home";
 import ThreadDetail from "@pages/thread-detail";
 
@@ -12,7 +12,7 @@ export const router = [
         element: <ThreadDetail/>
     },
     {
-        path: "createpost",
+        path: "/create/post",
         element : <CreatePost/>
     }
 ]
