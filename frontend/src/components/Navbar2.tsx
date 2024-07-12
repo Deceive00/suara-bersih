@@ -9,7 +9,7 @@ import {
   
     return (
       <NavigationMenu 
-        className={`border-none shadow-none bg-custom-radial-gradient z-50 fixed font-arsenalsc flex items-center justify-between p-4 px-16 text-white w-full bg-black transition-all duration-1000 ease-in-out`}
+        className={`border-none shadow-none opacity-85 bg-black z-50 fixed font-arsenalsc flex items-center justify-between p-4 px-16 text-white w-full bg-black transition-all duration-1000 ease-in-out`}
       >
         {/* Logo */}
         <div className="text-lg font-bold">SuaraBersih.</div>

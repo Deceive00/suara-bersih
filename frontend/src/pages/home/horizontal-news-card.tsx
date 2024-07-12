@@ -26,32 +26,32 @@ const HorizontalNewsCard : React.FC<Props> = ({post}) => {
                   <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
                 </div>
               </div>
-              <span className="text-md font-normal text-WhiteSecondary py-2">
+              <span className="text-md font-normal text-primary py-2">
                 CNN News &bull; 13 mins ago
               </span>
             </div>
 
             {/* Title */}
-            <h1 className="text-left font-bold text-4xl text-white h-1/4">
+            <h1 className="text-left font-bold text-4xl text-black h-1/4">
               {post.newsTitle}
             </h1>
 
             {/* Description */}
-            <span className="text-slate-100 text-justify h-2/4">
+            <span className="text-slate-700 text-justify h-2/4">
               {post.newsDescription}
             </span>
 
             {/* Tags Decoration */}
-            <div className="flex flex-row h-1/4 justify-start items-center gap-x-2">
-              <span className="font-bold text-md text-white">
+            <div className="flex flex-row h-1/4 justify-start items-center gap-x-2 text-RedPrimary">
+              <span className="font-bold text-md">
                 HotTopics &bull;
               </span>
 
-              <span className="font-bold text-md text-white">
+              <span className="font-bold text-md">
                 Corruption &bull;
               </span>
 
-              <span className="font-bold text-md text-white">
+              <span className="font-bold text-md">
                 BerantasHabis! &bull;
               </span>
             </div>

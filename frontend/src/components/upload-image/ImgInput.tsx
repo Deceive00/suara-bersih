@@ -64,9 +64,9 @@ export function ImgInput({ value, onChange, defaultImages }: ImageInputProp) {
             }
           </div>
         ) : (
-          <div className="p-10 w-full border-black border-[0.1rem] bg-white rounded-md flex justify-center items-center flex-col">
-            <FaImages className="w-48 h-48" color="orange"/>
-            <p className="text-black font-bold">Drop your image here or <span className="text-orange-400"> browse</span></p>
+          <div className="p-10 w-full border-secondary border-[0.1rem] bg-white rounded-md flex justify-center items-center flex-col">
+            <FaImages className="w-48 h-48 text-gray-300"/>
+            <p className="text-gray-400 font-normal">Drop your image here or <span className="text-RedPrimary font-bold"> browse</span></p>
           </div>
         )}
 

@@ -47,7 +47,7 @@ const Home = () => {
   // Fetch Most Hot News
 
   return (
-    <div className="w-screen box-border bg-black text-montserrat overflow-x-hidden">
+    <div className="w-screen box-border bg-white text-montserrat overflow-x-hidden">
       <Navbar />
 
       <div className="pt-16 px-16 box-border w-full h-auto flex flex-col gap-y-8">
@@ -55,7 +55,7 @@ const Home = () => {
         <HorizontalNewsCard post={news[0]}/>
 
         {/* Content 2 */}
-        <div className="w-full text-WhitePrimary ">
+        <div className="w-full text-black ">
           <h1 className="text-2xl font-bold text-left">Latest News</h1>
 
           {/* Image Infinite Scroll */}

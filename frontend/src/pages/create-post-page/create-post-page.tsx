@@ -1,4 +1,3 @@
-import Navbar from "@components/Navbar";
 import { Button } from "@components/ui/button";
 import { Progress } from "@components/ui/progress";
 import { createPost } from "@lib/services/posts.service";
@@ -15,6 +14,9 @@ import { useToast } from "@components/ui/use-toast";
 import { Toaster } from "@components/ui/toaster";
 import { ConfirmPost } from "./confirm-post";
 import { useNavigate } from "react-router-dom";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "src/firebase/firebase-config";
+import Navbar2 from "@components/Navbar2";
 
 const CreatePost = () => {
   const {
@@ -25,6 +27,9 @@ const CreatePost = () => {
     trigger,
     reset
   } = useForm();
+  useEffect(() => {
+    signInWithEmailAndPassword(auth,"rian@gmail.com", 'rian1234')
+  }, [])
   const watchPostTitle = watch("postTitle");
   const {toast} = useToast();
   const [selectedThreadTitle, setSelectedThreadTitle] = useState("");
@@ -191,27 +196,30 @@ const CreatePost = () => {
   }, [errorMsg]);
   
   return (
-    <div className="bg-gray-700 w-screen min-h-screen h-full text-white font-montserrat text-sm transition-all duration-700 pb-10">
-      <Navbar></Navbar>
+    <div className="w-screen min-h-screen h-full text-white font-montserrat text-sm transition-all duration-700 pb-10">
+      <Navbar2/>
       <div className="pt-20 mx-80">
-        <div className="justify-between flex pb-5 text-orange-400">
-          <a>Post Progress</a>
-          <a>Step {step.number}/3</a>
-          <a>{step.name}</a>
+        {/* Progress Header */}
+        <div className="justify-between flex pb-5 font-bold">
+          <a className="text-lg text-primary">Post Progress</a>
+          <div className="flex flex-row gap-x-2 text-lg text-RedPrimary">
+            <a className="">Step {step.number} / 3</a>
+            {/* <Separator className="w-[2px] h-full bg-black" /> */}
+          </div>
         </div>
         <Progress
           value={step.progress}
-          className="[&>*]:bg-orange-400 bg-gray-300 h-2 transition-all duration-700"
+          className="[&>*]:bg-RedPrimary bg-red-200 h-2 transition-all duration-700"
         />
         <div className={`transition-all duration-200 ${
             transitioning ? "opacity-0" : "opacity-100"
-          }`}>
+          } py-8`}>
           {renderSubPage()}
         </div>
         <div className="mt-5 flex space-x-2">
           {step.number > 1 && (
             <Button
-              className="bg-transparent"
+              className="bg-transparent text-primary"
               variant="outline"
               onClick={handlePrevStep}
             >

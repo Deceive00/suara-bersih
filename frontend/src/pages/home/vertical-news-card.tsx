@@ -24,18 +24,18 @@ const VerticalNewsCard : React.FC<Props> = ({news}) => {
                 <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
               </div>
             </div>
-            <span className="text-md font-normal text-WhiteSecondary py-2">
+            <span className="text-md font-normal text-black py-2">
               CNN News &bull; 1 day ago
             </span>
           </div>
 
           {/* Title */}
-          <h1 className="h-1/6 text-left font-bold py-2 text-xl">
+          <h1 className="h-1/6 text-left font-bold py-2 text-xl text-primary">
             {news.newsTitle}
           </h1>
 
           {/* Description */}
-          <span className="text-slate-100 text-justify h-2/6">
+          <span className="text-slate-700 text-justify h-2/6">
             {news.newsDescription}
           </span>
         </div>

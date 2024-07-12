@@ -1,16 +1,8 @@
-<<<<<<< HEAD
+import Loader from "@components/loading/loader";
 import Navbar2 from "@components/Navbar2";
 
 import {
   Card,
-=======
-import Loader from "@components/loading/loader";
-import Navbar from "@components/Navbar";
-
-import {
-  Card,
-
->>>>>>> refs/remotes/origin/main
   CardDescription,
   CardHeader,
   CardTitle,
@@ -47,7 +39,7 @@ const ThreadDetail = () => {
   }
   return (
     <div className="flex bg-white w-screen font-montserrat flex-row gap-x-8">
-      <Navbar />
+      <Navbar2 />
 
       {/* Thread Detail */}
       <div className="mt-16 pl-16 py-20 mx-auto grid bg-white rounded-2xl w-3/4">

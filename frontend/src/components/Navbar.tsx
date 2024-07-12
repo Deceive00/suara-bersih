@@ -33,7 +33,7 @@ const Navbar = () => {
   return (
     <NavigationMenu 
         style={navbarStyles}
-      className={`z-50 fixed font-montserrat flex items-center justify-between p-4 px-16 text-white w-full bg-black transition-all duration-1000 ease-in-out`}
+      className={`z-50 fixed font-arsenalsc flex items-center justify-between p-4 px-16 text-white w-full bg-black transition-all duration-1000 ease-in-out`}
     >
       {/* Logo */}
       <div className="text-lg font-bold">SuaraBersih.</div>
