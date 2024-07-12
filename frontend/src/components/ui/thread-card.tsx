@@ -31,11 +31,15 @@ const ThreadCard: React.FC<ThreadCardProps> = ({ thread }) => {
         <TooltipTrigger asChild>
           <div className="card bg-white shadow-xl m-1 border-2 px-11 py-5 flex justify-between items-center">
             <div>
-              <h2 className="card-title text-3xl mb-5">            <div
-              className={`w-4 h-4 rounded-full ${getStatusColor(
-                thread.status
-              )}`}
-            />{thread.threadTitle}</h2>
+              <h2 className="card-title text-xl mb-5">
+                {" "}
+                <div
+                  className={`w-4 h-4 rounded-full ${getStatusColor(
+                    thread.status
+                  )}`}
+                />
+                {thread.threadTitle}
+              </h2>
               {/* <p>{thread.status}</p> */}
               {/* <p>Upvotes: {thread.userUpvotes.length}</p>
         <p>Downvotes: {thread.userDownvotes.length}</p> */}

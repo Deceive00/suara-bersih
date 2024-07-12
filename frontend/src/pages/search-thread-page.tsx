@@ -4,9 +4,8 @@ import { FlipWords } from "@components/ui/flip-words";
 import { Input } from "@components/ui/input";
 import { getAllThread, searchThread } from "@lib/services/threads.service";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { Thread } from "src/types/threads-type";
-import { useRef, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { useRef } from "react";
 import { RiSpeakLine } from "react-icons/ri";
 import { IoSearch } from "react-icons/io5";
 import { Thread } from "src/types/threads-type";
@@ -87,24 +86,19 @@ const SearchThread = () => {
     setInputValue(event.target.value);
   };
 
-  const threads: Thread[] = [
-    {
-      threadId: "1",
-      threadTitle: "#271TIMAH",
-      userUpvotes: ["user1", "user2"],
-      userDownvotes: ["user3"],
-      status: "complaint filed",
-    },
-  ];
   useEffect(() => {
     const fetchData = async () => {
       if(query){
         const data = await searchThread(query);
+        console.log(data);
+        
         setThreads(data);
       }
     }
     fetchData();
   }, [])
+
+  const navigate = useNavigate();
 
   return (
     <div className="">
@@ -137,7 +131,8 @@ const SearchThread = () => {
                 <RiSpeakLine />
               )}
             </Button>
-            <Button className="bg-RedPrimary text-WhitePrimary hover:text-lg transition-all duration-300">
+            <Button className="bg-RedPrimary text-WhitePrimary hover:text-lg transition-all duration-300"
+            onClick={()=>{navigate(`/search/thread/${inputValue}`);window.location.reload()}}>
               <IoSearch />
             </Button>
           </div>
@@ -145,7 +140,7 @@ const SearchThread = () => {
       </div>
       {/* bagian hasil */}
       <div className="grid grid-cols-3 gap-4 p-4 mx-16">
-        {threads.map((thread) => (
+        {threads?.map((thread) => (
           <ThreadCard key={thread.threadId} thread={thread} />
         ))}
       </div>
