@@ -23,6 +23,7 @@
     "clsx": "^2.1.1",
     "daisyui": "^4.12.10",
     "firebase": "^10.12.3",
+    "framer-motion": "^11.3.2",
     "lucide-react": "^0.407.0",
     "next-themes": "^0.3.0",
     "path": "^0.12.7",

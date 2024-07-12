@@ -1,7 +1,10 @@
 import Navbar from "@components/Navbar";
 import { Badge } from "@components/ui/badge";
+<<<<<<< HEAD
 import { Button } from "@components/ui/button";
 
+=======
+>>>>>>> refs/remotes/origin/main
 import {
   Card,
   CardContent,
