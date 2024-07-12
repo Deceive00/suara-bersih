@@ -101,7 +101,7 @@ const SearchThread = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="">
+    <div className="w-screen min-h-screen h-full">
       <Navbar />
       {/* bagian atas */}
       <div className="pb-12 flex font-montserrat bg-gradient-to-b from-RedPrimary to-white">

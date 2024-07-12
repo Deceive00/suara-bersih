@@ -35,7 +35,9 @@ const PostCard = () => {
           </CardDescription>
           </div>
           <div className="flex justify-center items-center">
-            {/* <Tooltip></Tooltip> */}
+
+            <Tooltip></Tooltip>
+            
           </div>
         </div>
       </CardHeader>

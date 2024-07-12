@@ -4,5 +4,15 @@ export interface Thread{
   threadTitle : string;
   userUpvotes : string[];
   userDownvotes : string[];
-  status? : string;
+  status: string;
+}
+
+
+export interface ThreadFE{
+  threadId : string;
+  threadTitle : string;
+  userUpvotes : string[];
+  userDownvotes : string[];
+  status: string;
+  postCount: number;
 }

@@ -5,8 +5,8 @@ export interface Post {
   postDescription: string;
   postImages: string[];
   threadId : string;
-  upvotes : number;
-  downvotes : number;
+  upvotes : string[];
+  downvotes : string[];
   createdAt : Date;
   isAnonymous : Boolean;
   userId?: string;

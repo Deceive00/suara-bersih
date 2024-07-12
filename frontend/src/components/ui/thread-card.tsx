@@ -5,7 +5,7 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@radix-ui/react-tooltip";
+} from "@components/ui/tooltip";
 
 interface ThreadCardProps {
   thread: Thread;
@@ -40,9 +40,9 @@ const ThreadCard: React.FC<ThreadCardProps> = ({ thread }) => {
                 />
                 {thread.threadTitle}
               </h2>
-              {/* <p>{thread.status}</p> */}
-              {/* <p>Upvotes: {thread.userUpvotes.length}</p>
-        <p>Downvotes: {thread.userDownvotes.length}</p> */}
+              <p>{thread.status}</p>
+              <p>Upvotes: {thread.userUpvotes.length}</p>
+              <p>Downvotes: {thread.userDownvotes.length}</p>
             </div>
           </div>
         </TooltipTrigger>
