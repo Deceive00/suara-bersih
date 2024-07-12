@@ -3,7 +3,7 @@ import blurred from "@assets/homePageBackground.png"
 import "./Home.css"
 import { Button } from "@components/ui/button"
 
-const Home = () => {
+const LandingPage = () => {
   return (
     <div className="bg-custom-radial-gradient w-screen h-screen border-content text-montserrat">
       <Navbar/>
@@ -43,4 +43,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default LandingPage

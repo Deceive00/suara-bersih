@@ -2,6 +2,10 @@ import Navbar from "@components/Navbar";
 import { Button } from "@components/ui/button";
 import { FlipWords } from "@components/ui/flip-words";
 import { Input } from "@components/ui/input";
+import { getAllThread, searchThread } from "@lib/services/threads.service";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { Thread } from "src/types/threads-type";
 import { useRef, useState } from "react";
 import { RiSpeakLine } from "react-icons/ri";
 import { IoSearch } from "react-icons/io5";
@@ -9,6 +13,8 @@ import { Thread } from "src/types/threads-type";
 import ThreadCard from "@components/ui/thread-card";
 
 const SearchThread = () => {
+  const {query} = useParams();
+  const [threads, setThreads] = useState<Thread[] | null>(null);
   const words = [
     "Bribery",
     "Fraud",
@@ -90,6 +96,16 @@ const SearchThread = () => {
       status: "complaint filed",
     },
   ];
+  useEffect(() => {
+    const fetchData = async () => {
+      if(query){
+        const data = await searchThread(query);
+        setThreads(data);
+      }
+    }
+    fetchData();
+  }, [])
+
   return (
     <div className="">
       <Navbar />
