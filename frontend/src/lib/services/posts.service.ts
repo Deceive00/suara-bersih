@@ -1,9 +1,9 @@
 import { addData } from "src/firebase/firebase-base-function";
-import { auth } from "src/firebase/firebase-config";
+import { auth, db } from "src/firebase/firebase-config";
 import { InsertPost, Post } from "src/types/posts-style";
 import { createThread } from "./threads.service";
 import { uploadMultiplePhoto } from "./images.service";
-import { updateDoc } from "firebase/firestore";
+import { collection, getDocs, query, updateDoc, where } from "firebase/firestore";
 
 const defaultPhoto =
 "https://firebasestorage.googleapis.com/v0/b/youpi-92b43.appspot.com/o/default.png?alt=media&token=429db833-8c08-4045-8122-ad42130f2883";
@@ -53,3 +53,15 @@ export const createPost = async ({newPost, threadTitle, threadId} : {newPost: In
 
 
 
+export const getPostByThread = async (threadId: string) : Promise<any> => {
+  try {
+    const threadsRef = collection(db, "posts");
+    const q = query(threadsRef, where("threadId", "==", threadId));
+    const querySnapshot = await getDocs(q);
+    
+    return querySnapshot.docs;
+  } catch (e) {
+    console.error("Error checking post count: ", e);
+    throw new Error("Error checking post count");
+  }
+}

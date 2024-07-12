@@ -1,7 +1,16 @@
+<<<<<<< HEAD
 import Navbar2 from "@components/Navbar2";
 
 import {
   Card,
+=======
+import Loader from "@components/loading/loader";
+import Navbar from "@components/Navbar";
+
+import {
+  Card,
+
+>>>>>>> refs/remotes/origin/main
   CardDescription,
   CardHeader,
   CardTitle,
@@ -11,12 +20,34 @@ import ReferenceCard from "@components/ui/reference-card";
 import { Separator } from "@components/ui/separator";
 import StatsThread from "@components/ui/stats-thread";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@components/ui/tabs";
+import { getThreadById } from "@lib/services/threads.service";
+import { useState } from "react";
+import { useQuery } from "react-query";
+import { useParams } from "react-router-dom";
+import { Thread, ThreadFE } from "src/types/threads-type";
 
 const ThreadDetail = () => {
-
+  const {id} = useParams();
+  const [threads, setThreads] = useState<ThreadFE | null>(null);
+  const {isLoading, isFetching} = useQuery(['fetchAllThread'], async () => {
+    if(id){
+      const data = await getThreadById(id);
+      return data;
+    }
+  }, {
+    onError: (error : Error) => {
+      console.error('Error fetching data', error.message)
+    }, onSuccess: (data : ThreadFE) => {
+      console.log(data);
+      setThreads(data);
+    }
+  });
+  if(isLoading || isFetching){
+    return <Loader/>
+  }
   return (
     <div className="flex bg-white w-screen font-montserrat flex-row gap-x-8">
-      <Navbar2 />
+      <Navbar />
 
       {/* Thread Detail */}
       <div className="mt-16 pl-16 py-20 mx-auto grid bg-white rounded-2xl w-3/4">

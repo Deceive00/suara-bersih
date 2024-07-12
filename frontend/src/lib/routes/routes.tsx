@@ -11,7 +11,7 @@ export const router = [
         element: <LandingPage />
     },
     {
-        path: "/thread/detail/",
+        path: "/thread/:id",
         element: <ThreadDetail/>
     },
     {

@@ -1,3 +1,4 @@
+import { Post } from "./posts-style";
 
 export interface Thread{
   threadId : string;
@@ -14,5 +15,6 @@ export interface ThreadFE{
   userUpvotes : string[];
   userDownvotes : string[];
   status: string;
-  postCount: number;
+  postCount?: number;
+  posts?: Post[];
 }

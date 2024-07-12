@@ -1,7 +1,8 @@
-import { collection, getDocs, query, updateDoc, where } from "firebase/firestore";
+import { collection, doc, getDoc, getDocs, query, updateDoc, where } from "firebase/firestore";
 import { addData } from "src/firebase/firebase-base-function";
 import { db } from "src/firebase/firebase-config";
 import { Thread, ThreadFE } from "src/types/threads-type";
+import { getPostByThread } from "./posts.service";
 
 export const createThread = async (threadTitle : string) => {
   if(threadTitle.length <= 0){
@@ -38,16 +39,18 @@ export const isUniqueThread = async (threadTitle: string): Promise<boolean> => {
   }
 };
 
-export const getAllThread = async () => {
+export const getAllThread = async (): Promise<any[]> => {
   const threadRef = collection(db, 'threads');
   const querySnapshot = await getDocs(threadRef);
+
   const threadsWithCounts = await Promise.all(querySnapshot.docs.map(async (doc) => {
-    const count = await getPostCount(doc.id);
+    const snapshot = await getPostByThread(doc.id);
+    const count = snapshot.length;
     return { ...doc.data(), threadId: doc.id, postCount: count };
   }));
-  console.log(threadsWithCounts)
-  return threadsWithCounts
-}
+
+  return threadsWithCounts;
+};
 
 export const getThreadRecommendation = async (postTitle: string) =>{
   const allThread = await getAllThread();
@@ -63,18 +66,7 @@ export const getThreadRecommendation = async (postTitle: string) =>{
   return data;
 }
 
-export const getPostCount = async (threadId: string) => {
-  try {
-    const threadsRef = collection(db, "posts");
-    const q = query(threadsRef, where("threadId", "==", threadId));
-    const querySnapshot = await getDocs(q);
-    
-    return querySnapshot.docs.length;
-  } catch (e) {
-    console.error("Error checking post count: ", e);
-    throw new Error("Error checking post count");
-  }
-}
+
 export const searchThread = async (query : string) => {
   const allThread = await getAllThread() as ThreadFE[];
   
@@ -89,4 +81,15 @@ export const searchThread = async (query : string) => {
   return data;
 }
 
-
+export const getThreadById = async (threadId: string) => {
+  const threadDoc = await getDoc(doc(db, 'threads', threadId));
+  if(threadDoc.exists()){
+    const thread = threadDoc.data() as ThreadFE;
+    const snapshot = await getPostByThread(threadDoc.id);
+    const allPosts = snapshot.map((docu: any) => docu.data());
+    thread.threadId = threadDoc.id;
+    thread.posts = allPosts;
+    thread.postCount = allPosts.length;
+    return thread;
+  }
+}

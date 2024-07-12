@@ -2,10 +2,11 @@ import * as React from "react"
 
 import { cn } from "@lib/utils"
 import VotingTooltip from "./voting_tooltip";
+import { Post } from "src/types/posts-style";
 
 
 
-const PostCard = () => {
+const PostCard = (post : Post) => {
   return (
     <Card className="rounded-md my-6">
       <CardHeader>
@@ -36,9 +37,7 @@ const PostCard = () => {
           </div>
           <div className="flex justify-center items-center">
 
-
-            <VotingTooltip></VotingTooltip>
-            {/* <Tooltip></Tooltip> */}
+            <VotingTooltip post={post} ></VotingTooltip>
             
           </div>
         </div>
