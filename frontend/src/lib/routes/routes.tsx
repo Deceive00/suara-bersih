@@ -1,3 +1,4 @@
+import Blackbox from "@pages/blackbox-page";
 import CreatePost from "@pages/create-post-page/create-post-page";
 import Home from "@pages/home/home";
 import LandingPage from "@pages/landing-page";
@@ -29,5 +30,9 @@ export const router = [
     {
         path: "/home",
         element : <Home />
+    },
+    {
+        path: "/blackbox",
+        element : <Blackbox />
     }
 ]
