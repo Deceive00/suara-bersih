@@ -51,3 +51,7 @@ export const createPost = async ({newPost, threadTitle, threadId} : {newPost: In
 }
 
 
+const upvotePost = async () => {
+
+}
+
