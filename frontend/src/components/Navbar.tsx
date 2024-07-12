@@ -7,8 +7,10 @@ import {
 import { useEffect, useState } from "react";
 
 import logo from "@assets/logo.png"
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [navbarOpacity, setNavbarOpacity] = useState<number>(85);
 
   useEffect(() => {
@@ -38,7 +40,9 @@ const Navbar = () => {
       className={`z-50 fixed font-arsenalsc flex items-center justify-between p-4 px-16 text-white w-full bg-black transition-all duration-1000 ease-in-out`}
     >
       {/* Logo */}
-      <div className="text-lg font-bold flex flex-row gap-x-2 justify-center items-center">
+      <div className="text-lg font-bold flex flex-row gap-x-2 justify-center items-center"
+        onClick={() => navigate("/")}
+      >
         <img src={logo} className="w-6" alt="" />
         <h1>SuaraBersih.</h1>
       </div>
@@ -61,9 +65,9 @@ const Navbar = () => {
         <NavigationMenuItem>
           <NavigationMenuLink
             className=" hover:text-slate-300"
-            href="/create/post"
+            href="/blackbox"
           >
-            Create Post
+            Black Box
           </NavigationMenuLink>
         </NavigationMenuItem>
       </NavigationMenuList>
@@ -71,10 +75,10 @@ const Navbar = () => {
       <NavigationMenuList>
         <NavigationMenuItem>
           <NavigationMenuLink
-            className="text-xs hover:text-slate-300 hover:border-slate-300 border-white border rounded-sm  px-4 py-1.5 tracking-widest"
-            href="/"
+            className="text-xs hover:text-slate-300 hover:border-slate-300 border-white border rounded-sm  px-5 py-2 tracking-widest"
+            href="/create/post"
           >
-            Login
+            + Post
           </NavigationMenuLink>
         </NavigationMenuItem>
       </NavigationMenuList>
