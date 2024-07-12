@@ -4,6 +4,7 @@ import {
     NavigationMenuLink,
     NavigationMenuList,
   } from "@radix-ui/react-navigation-menu";
+  import logo from "@assets/logo.png"
   
   const Navbar2 = () => {
   
@@ -12,7 +13,10 @@ import {
         className={`border-none shadow-none opacity-85 bg-black z-50 fixed font-arsenalsc flex items-center justify-between p-4 px-16 text-white w-full bg-black transition-all duration-1000 ease-in-out`}
       >
         {/* Logo */}
-        <div className="text-lg font-bold">SuaraBersih.</div>
+        <div className="text-lg font-bold flex flex-row gap-x-2 justify-center items-center">
+          <img src={logo} className="w-6" alt="" />
+          <h1>SuaraBersih.</h1>
+        </div>
   
         {/* Middle Side */} 
         <NavigationMenuList className="flex space-x-10 items-center text-sm tracking-widest">
