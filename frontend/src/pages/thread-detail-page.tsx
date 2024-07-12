@@ -1,3 +1,4 @@
+import PostCard from "@components/cards/PostCard";
 import Loader from "@components/loading/loader";
 import Navbar from "@components/Navbar";
 
@@ -7,7 +8,6 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-  PostCard,
 } from "@components/ui/card";
 import ReferenceCard from "@components/ui/reference-card";
 import { Separator } from "@components/ui/separator";
@@ -17,12 +17,13 @@ import { getThreadById } from "@lib/services/threads.service";
 import { useState } from "react";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
-import { Thread, ThreadFE } from "src/types/threads-type";
+import { ThreadFE } from "src/types/threads-type";
 
 const ThreadDetail = () => {
   const {id} = useParams();
-  const [threads, setThreads] = useState<ThreadFE | null>(null);
+  const [thread, setThread] = useState<ThreadFE | null>(null);
   const {isLoading, isFetching} = useQuery(['fetchAllThread'], async () => {
+    console.log('fetching all thread');
     if(id){
       const data = await getThreadById(id);
       return data;
@@ -31,12 +32,10 @@ const ThreadDetail = () => {
     onError: (error : Error) => {
       console.error('Error fetching data', error.message)
     }, onSuccess: (data : ThreadFE) => {
-      console.log(data);
-      setThreads(data);
+      setThread(data);
     }
   });
   if(isLoading || isFetching){
-    return <Loader/>
   }
   return (
     <div className="flex bg-white w-screen font-montserrat flex-row gap-x-8">
@@ -45,14 +44,14 @@ const ThreadDetail = () => {
       {/* Thread Detail */}
       <div className="mt-16 pl-16 py-20 mx-auto grid bg-white rounded-2xl w-3/4">
         <a className="text-4xl text-black font-bold">
-          Corruption Case Done In Some Country
+          {thread?.threadTitle}
         </a>
         <a className="text-md text-black mb-5 font-extralight">
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry.
         </a>
 
-        <StatsThread></StatsThread>
+        <StatsThread thread={thread}></StatsThread>
         {/* <div className="mb-5 pb-5 border-b-2">
           <Badge className="mx-1">Tag 1</Badge>
           <Badge className="mx-1">Tag 2</Badge>
@@ -65,8 +64,14 @@ const ThreadDetail = () => {
             <TabsTrigger value="report">Report Status</TabsTrigger>
           </TabsList>
           <TabsContent value="posts">
-            <PostCard/>
-            <PostCard/>
+            {
+              thread && thread.posts?.map((post, index) => {
+                return (
+                  <PostCard key={index} post={post} />
+                )
+              })
+            }
+            
           </TabsContent>
           <TabsContent value="report">
             <Card>

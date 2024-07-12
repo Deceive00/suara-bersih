@@ -1,51 +1,6 @@
 import * as React from "react"
 
 import { cn } from "@lib/utils"
-import { Tooltip } from "./tooltip";
-import VotingTooltip from "./voting_tooltip";
-import { Post } from "src/types/posts-style";
-
-
-
-const PostCard = (post : Post) => {
-  return (
-    <Card className="rounded-md my-6">
-      <CardHeader>
-        {/* Image */}
-        <div className="w-full h-[15rem] overflow-hidden stack relative bg-black rounded-md">
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.jpg"
-            className="w-full h-full object-fit rounded"
-          />
-        </div>
-
-        
-        {/* Detail */}
-        <div className="flex flex-row">
-          <div>
-          <CardTitle className="text-lg text-left">Bejo Sulaiman Hersanda Kasus Korupsi 271T</CardTitle>
-          <CardDescription className="text-xs flex text-justify flex-col">
-            <div className="w-11/12">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book. It has
-              survived not only five centuries
-            </div>
-            
-            <span className="pt-4">-Yoseftian N, 3 March 2024</span>
-          </CardDescription>
-          </div>
-          <div className="flex justify-center items-center">
-
-            <VotingTooltip post={post} ></VotingTooltip>
-            
-          </div>
-        </div>
-      </CardHeader>
-    </Card>
-  );
-};
 
 const Card = React.forwardRef<
   HTMLDivElement,
@@ -121,4 +76,4 @@ const CardFooter = React.forwardRef<
 ))
 CardFooter.displayName = "CardFooter"
 
-export { PostCard, Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent }
+export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent }

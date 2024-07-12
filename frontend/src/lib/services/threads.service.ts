@@ -3,6 +3,9 @@ import { addData } from "src/firebase/firebase-base-function";
 import { db } from "src/firebase/firebase-config";
 import { Thread, ThreadFE } from "src/types/threads-type";
 import { getPostByThread } from "./posts.service";
+import { getUserById } from "./users.service";
+import { Post, PostFE } from "src/types/posts-style";
+import { User } from "src/types/users-types";
 
 export const createThread = async (threadTitle : string) => {
   if(threadTitle.length <= 0){
@@ -14,8 +17,8 @@ export const createThread = async (threadTitle : string) => {
   }
   const newThread = {
     threadTitle: threadTitle,
-    userUpvotes: [],
-    userDownvotes: [],
+    upvotes: [],
+    downvotes: [],
     threadId: '',
     status:'complaint filed'
   } as Thread;
@@ -86,7 +89,17 @@ export const getThreadById = async (threadId: string) => {
   if(threadDoc.exists()){
     const thread = threadDoc.data() as ThreadFE;
     const snapshot = await getPostByThread(threadDoc.id);
-    const allPosts = snapshot.map((docu: any) => docu.data());
+    const allPosts = await Promise.all(snapshot.map(async(docu : any) => {
+      const data = docu.data() as PostFE;
+      data.postId = docu.id
+      if(data.userId){
+        const user = await getUserById(data.userId)
+        if(user){
+          data.user = user;
+        }
+      }
+      return data;
+    }));
     thread.threadId = threadDoc.id;
     thread.posts = allPosts;
     thread.postCount = allPosts.length;
