@@ -6,9 +6,9 @@ const StatsThread = () => {
   const [upvotes, setUpvotes] = React.useState(0);
 
   return (
-    <div className="stats shadow bg-WhiteSecondary text-montserrat">
+    <div className="stats shadow text-montserrat w-1/2 mx-auto">
       {/* Left Stats */}
-      <div className="stat w-full mx-auto flex justify-center flex-row-reverse">
+      <div className="stat w-full mx-auto py-4 flex justify-center flex-row-reverse">
         {/* SVG */}
         <div className="stat-figure text-green-600">
           <svg
@@ -26,10 +26,10 @@ const StatsThread = () => {
           </svg>
         </div>
         {/* Desc */}
-        <div>
-          <div className="stat-title text-primary">Total Upvote</div>
-          <div className="stat-value w-auto text-green-600">{upvotes}</div>
-          <div className="stat-desc w-auto text-primary">
+        <div className="text-left">
+          <div className="stat-title text-WhiteSecondary">Total Upvote</div>
+          <div className="stat-value w-auto text-green-600">{upvotes}00K</div>
+          <div className="stat-desc w-auto text-WhiteSecondary">
             updated in real time
           </div>
         </div>
@@ -56,10 +56,10 @@ const StatsThread = () => {
         </div>
 
         {/* Desc */}
-        <div>
-          <div className="stat-title text-primary">Tags</div>
-          <div className="stat-value text-RedPrimary">{tags}</div>
-          <div className="stat-desc text-primary">in this thread</div>
+        <div className="text-left">
+          <div className="stat-title text-WhiteSecondary">Found</div>
+          <div className="stat-value text-RedPrimary">{tags} Tags</div>
+          <div className="stat-desc text-WhiteSecondary">in this thread</div>
         </div>
       </div>
     </div>

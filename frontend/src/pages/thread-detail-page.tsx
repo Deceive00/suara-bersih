@@ -68,7 +68,7 @@ const ThreadDetail = () => {
       <div className="w-1/4 mt-16 pr-16 text-montserrat font-bold">
         <h3 className="text-left">RELATED REFERENCES</h3>
 
-        <Separator className="my-1" />
+        <Separator className="py-[1px] my-1 rounded-full bg-custom-radial-gradient" />
 
         {/* Mapping of reference */}
         <ReferenceCard />
