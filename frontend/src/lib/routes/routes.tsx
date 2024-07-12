@@ -1,5 +1,6 @@
 import CreatePost from "@pages/create-post-page";
 import Home from "@pages/Home";
+import TestMic from "@pages/test-mic/test-mic-page";
 import ThreadDetail from "@pages/thread-detail-page";
 
 export const router = [
@@ -16,6 +17,7 @@ export const router = [
         element : <CreatePost/>
     },
     {
-        
+        path: "mic",
+        element : <TestMic/>
     }
 ]
