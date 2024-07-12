@@ -1,15 +1,31 @@
-import blank from "@assets/image-placeholder.webp";
-import { useState } from "react";
 
+import { useEffect, useState } from "react";
+import { FaImages } from "react-icons/fa";
 interface ImageInputProp {
   value: File[];
   onChange: (files: File[]) => void;
-  defaultImages?: string[];
+  defaultImages?: any[];
 }
 
 export function ImgInput({ value, onChange, defaultImages }: ImageInputProp) {
-  const [imageUrls, setImageUrls] = useState<(string | ArrayBuffer)[]>(defaultImages || []);
-
+  console.log(defaultImages)
+  const [imageUrls, setImageUrls] = useState<(string | ArrayBuffer)[] | null>(defaultImages || null);
+  useEffect(() => {
+    if(defaultImages){
+      const readers = defaultImages.map(file => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        return new Promise<string | ArrayBuffer>((resolve) => {
+          reader.onload = () => resolve(reader.result!);
+        });
+      });
+  
+      Promise.all(readers).then(results => {
+        setImageUrls(results);
+      });
+    }
+  }, []);
+  
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(event.target.files || []);
     if (files.length > 0) {
@@ -34,20 +50,27 @@ export function ImgInput({ value, onChange, defaultImages }: ImageInputProp) {
 
   return (
     <div className={`px-0 w-full flex justify-center items-center h-full`} onClick={handleDivClick}>
-      <div className="grid grid-cols-3 gap-2 w-full">
-        {imageUrls.length > 0 ? (
-          imageUrls.map((url, index) => (
-            <img
-              key={index}
-              className="sm:rounded-md h-full object-center object-cover w-full"
-              src={url as string}
-              alt="Selected file"
-            />
-          ))
+      
+        {imageUrls && imageUrls.length > 0 ? (
+          <div className="grid grid-cols-2 gap-2 w-full p-10">
+            {
+              imageUrls.map((url, index) => (
+                <img
+                  key={index}
+                  className="sm:rounded-md h-48 object-center object-cover w-full"
+                  src={url as string}
+                  alt="Selected file"
+                />
+              ))
+            }
+          </div>
         ) : (
-          <img className="sm:rounded-md h-full object-center object-cover w-full" src={blank} alt="Placeholder" />
+          <div className="p-10 w-full border-black border-[0.1rem] bg-white rounded-md flex justify-center items-center flex-col">
+            <FaImages className="w-48 h-48" color="orange"/>
+            <p className="text-black font-bold">Drop your image here or <span className="text-orange-400"> browse</span></p>
+          </div>
         )}
-      </div>
+
       <input
         id="fileInput"
         type="file"

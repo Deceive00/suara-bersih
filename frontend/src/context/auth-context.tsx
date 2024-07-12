@@ -1,4 +1,4 @@
-import { AuthState, User, UserRegis } from "@types/users-types";
+import { AuthState, User, UserRegis } from "src/types/users-types";
 import { ReactNode, createContext, useState, useEffect } from "react";
 import { useMutation } from "react-query";
 import {

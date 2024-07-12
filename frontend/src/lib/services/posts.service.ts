@@ -40,14 +40,16 @@ export const createPost = async ({newPost, threadTitle, threadId} : {newPost: In
     })
   }
 
-  let uploadedImages: string[] = [defaultPhoto];
+  let uploadedImages: string[] = [];
 
   if (newPost.postImages.length > 0) {
     const path = `posts/${auth?.currentUser?.email}/${postRef.id}`;
     uploadedImages = await uploadMultiplePhoto(newPost.postImages, path);
   }
   post.postImages = uploadedImages
+  console.log(post)
   await updateDoc(postRef, { ...post })
 }
+
 
 
