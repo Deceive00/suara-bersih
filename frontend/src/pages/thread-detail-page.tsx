@@ -66,11 +66,6 @@ const ThreadDetail = () => {
           </a>
 
           <StatsThread thread={thread}></StatsThread>
-          {/* <div className="mb-5 pb-5 border-b-2">
-          <Badge className="mx-1">Tag 1</Badge>
-          <Badge className="mx-1">Tag 2</Badge>
-          <Badge className="mx-1">Tag 3</Badge>
-        </div> */}
           {/* Tabs */}
           <Tabs defaultValue="posts" className="w-full pt-4">
             <TabsList className="grid w-full grid-cols-2">
