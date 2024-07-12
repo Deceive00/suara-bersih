@@ -7,11 +7,13 @@ const Tooltip = () => {
       <li>
         <a className="tooltip tooltip-right" data-tip="Up vote">
           <BiUpvote className="text-lg text-green-800"/>
+          90
         </a>
       </li>
       <li>
         <a className="tooltip tooltip-right" data-tip="Down vote">
           <BiDownvote className="text-lg text-RedPrimary"/>
+          90
         </a>
       </li>
     </ul>
