@@ -1,6 +1,6 @@
 import CreatePost from "@pages/create-post-page";
 import Home from "@pages/Home";
-import ThreadDetail from "@pages/thread-detail";
+import ThreadDetail from "@pages/thread-detail-page";
 
 export const router = [
     {
@@ -14,5 +14,8 @@ export const router = [
     {
         path: "createpost",
         element : <CreatePost/>
+    },
+    {
+        
     }
 ]
