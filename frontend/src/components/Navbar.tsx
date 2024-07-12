@@ -31,9 +31,9 @@ const Navbar = () => {
   };
 
   return (
-    <NavigationMenu
+    <NavigationMenu 
         style={navbarStyles}
-      className={`fixed font-montserrat flex items-center justify-between p-4 px-16 text-white w-full bg-black transition-all duration-1000 ease-in-out`}
+      className={`z-10 fixed font-montserrat flex items-center justify-between p-4 px-16 text-white w-full bg-black transition-all duration-1000 ease-in-out`}
     >
       {/* Logo */}
       <div className="text-lg font-bold">SuaraBersih.</div>
