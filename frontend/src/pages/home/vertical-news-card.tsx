@@ -14,7 +14,7 @@ const VerticalNewsCard : React.FC<Props> = ({news}) => {
         >
           {/* Image */}
           <div className="carousel-item w-[100%] h-3/6 rounded-lg overflow-hidden">
-            <img src={dummyPng} alt={news.newsTitle} className="" />
+            <img src={news.newsImage} alt={news.newsTitle} className="object-cover w-full h-full" />
           </div>
 
           {/*  Avatar & Date */}
@@ -30,12 +30,12 @@ const VerticalNewsCard : React.FC<Props> = ({news}) => {
           </div>
 
           {/* Title */}
-          <h1 className="h-1/6 text-left font-bold py-2 text-xl text-primary">
+          <h1 className="h-[20rem] text-left font-bold py-2 text-xl text-primary">
             {news.newsTitle}
           </h1>
 
           {/* Description */}
-          <span className="text-slate-700 text-justify h-2/6">
+          <span className="text-slate-700 text-justify h">
             {news.newsDescription}
           </span>
         </div>
