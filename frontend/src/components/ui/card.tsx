@@ -2,6 +2,7 @@ import * as React from "react"
 
 import { cn } from "@lib/utils"
 import { Tooltip } from "./tooltip";
+import VotingTooltip from "./voting_tooltip";
 
 
 
@@ -36,7 +37,9 @@ const PostCard = () => {
           </div>
           <div className="flex justify-center items-center">
 
-            <Tooltip></Tooltip>
+
+            <VotingTooltip></VotingTooltip>
+            {/* <Tooltip></Tooltip> */}
             
           </div>
         </div>
