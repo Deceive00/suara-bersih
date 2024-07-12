@@ -3,8 +3,14 @@ import { BiSolidDownvote, BiSolidUpvote, BiUpvote } from "react-icons/bi";
 import { BiDownvote } from "react-icons/bi";
 import { auth } from "src/firebase/firebase-config";
 import { PostFE } from "src/types/posts-style";
-
-const VotingTooltip = ({post} : {post : PostFE}) => {
+import { Skeleton } from "./skeleton";
+export const VoteSkeleton = () =>{
+  return(
+      <Skeleton className='w-4 h-2 bg-gray-200'>
+      </Skeleton>
+  );
+}
+const VotingTooltip = ({post, isLoading} : {post : PostFE, isLoading : boolean}) => {
 
   return (
     <ul className="m-0 p-2 menu rounded-box gap-y-2">
@@ -18,7 +24,8 @@ const VotingTooltip = ({post} : {post : PostFE}) => {
             (<BiUpvote className="text-lg text-green-800"/>) 
 
           }
-          {post.upvotes?.length || 0}
+          {!isLoading ? (post.upvotes?.length || 0) : <VoteSkeleton/>}
+          
         </a>
       </li>
 
@@ -35,7 +42,7 @@ const VotingTooltip = ({post} : {post : PostFE}) => {
             (<BiDownvote className="text-lg text-RedPrimary"/>) 
 
           }
-          {post.downvotes?.length || 0}
+          {!isLoading ? (post.downvotes?.length || 0) : <VoteSkeleton/>}
 
         </a>
       </li>

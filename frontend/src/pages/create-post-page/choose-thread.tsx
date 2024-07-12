@@ -47,7 +47,7 @@ export const ChooseThread = ({
               key={index}
               className={`text-black rounded-md flex gap-2 cursor-pointer p-2 w-fit items-center transition-all duration-300 ${
                 selectedRecommendation?.threadId === thread.threadId
-                  ? "bg-orange-400 opacity-100"
+                  ? "bg-RedPrimary opacity-100 text-white"
                   : "bg-gray-100 opacity-70"
               }`}
             >
@@ -59,7 +59,8 @@ export const ChooseThread = ({
               >
                 {thread.threadTitle}
               </p>
-              <MdCancel onClick={() => handleRemoveRecommendation()} />
+
+              {selectedRecommendation.threadTitle === thread.threadTitle && <MdCancel onClick={() => handleRemoveRecommendation()} />}
             </div>
           ))}
       </div>
