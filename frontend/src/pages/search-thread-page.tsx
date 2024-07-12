@@ -104,9 +104,9 @@ const SearchThread = () => {
     <div className="w-screen min-h-screen h-full font-montserrat">
       <Navbar />
       {/* bagian atas */}
-      <div className="pb-12 flex bg-gradient-to-b from-RedPrimary to-white">
+      <div className="pb-12 flex bg-white">
         <div className="pt-32 grid mx-80 items-center align-middle">
-          <div className="mb-4 text-5xl mx-auto font-normal text-white dark:text-neutral-400">
+          <div className="mb-4 text-5xl mx-auto font-normal text-black dark:text-neutral-400">
             Search and Discover Threads about
             <FlipWords className="text-RedPrimary" words={words} /> <br />
           </div>
@@ -117,7 +117,7 @@ const SearchThread = () => {
             <Input
               type="text"
               placeholder="Search cases, threads, keywords..."
-              className="bg-white bg-opacity-70 text-black placeholder:text-gray-700 border-transparent "
+              className="bg-gray-300 text-gray-700 placeholder:text-gray-600 border-transparent "
               value={inputValue}
               onChange={handleInputChange}
             />
