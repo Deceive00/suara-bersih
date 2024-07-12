@@ -11,12 +11,10 @@ import ReferenceCard from "@components/ui/reference-card";
 import { Separator } from "@components/ui/separator";
 import StatsThread from "@components/ui/stats-thread";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@components/ui/tabs";
-import { useAuth } from "@lib/hooks/useAuth";
 import { getThreadById } from "@lib/services/threads.service";
 import { useState } from "react";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
-import { auth } from "src/firebase/firebase-config";
 import { ThreadFE } from "src/types/threads-type";
 
 const ThreadDetail = () => {
