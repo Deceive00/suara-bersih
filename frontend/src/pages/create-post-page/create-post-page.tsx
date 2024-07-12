@@ -150,6 +150,7 @@ const CreatePost = () => {
       setStep(SUBPAGE_ATTRIBUTES[step.number]);
       setTransitioning(false);
     }
+    setTransitioning(false);
   }
 
   const handlePrevStep = async () => {

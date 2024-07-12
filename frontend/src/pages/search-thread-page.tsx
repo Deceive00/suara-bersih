@@ -2,8 +2,14 @@ import Navbar from "@components/Navbar";
 import { Button } from "@components/ui/button";
 import { FlipWords } from "@components/ui/flip-words";
 import { Input } from "@components/ui/input";
+import { getAllThread, searchThread } from "@lib/services/threads.service";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { Thread } from "src/types/threads-type";
 
 const SearchThread = () => {
+  const {query} = useParams();
+  const [threads, setThreads] = useState<Thread[] | null>(null);
   const words = [
     "Bribery",
     "Fraud",
@@ -11,6 +17,16 @@ const SearchThread = () => {
     "Corruption",
     "Transparency",
   ];
+  useEffect(() => {
+    const fetchData = async () => {
+      if(query){
+        const data = await searchThread(query);
+        setThreads(data);
+      }
+    }
+    fetchData();
+  }, [])
+
   return (
     <div className="">
       <Navbar />

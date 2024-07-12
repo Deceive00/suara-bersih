@@ -40,6 +40,7 @@ export const isUniqueThread = async (threadTitle: string): Promise<boolean> => {
 export const getAllThread = async () => {
   const threadRef = collection(db, 'threads');
   const querySnapshot = await getDocs(threadRef);
+  console.log(querySnapshot.docs.map(doc => ({...doc.data(), threadId: doc.id})))
   return querySnapshot.docs.map(doc => ({...doc.data(), threadId: doc.id}))
 }
 
@@ -54,5 +55,19 @@ export const getThreadRecommendation = async (postTitle: string) =>{
     body: JSON.stringify({ postTitle: postTitle, threads: allThread }),
   });
   const data = await response.json()
+  return data;
+}
+
+export const searchThread = async (query : string) => {
+  const allThread = await getAllThread();
+
+  const response = await fetch("http://127.0.0.1:5000/search", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ query: query, threads: allThread }),
+  });
+  const data = await response.json();
   return data;
 }

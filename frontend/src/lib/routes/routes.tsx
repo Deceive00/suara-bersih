@@ -18,7 +18,7 @@ export const router = [
         element : <CreatePost/>
     },
     {
-        path: "searchthread",
+        path: "/search/thread/:query",
         element : <SearchThread/>
     },
     {
