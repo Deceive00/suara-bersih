@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-import Loader from "@components/loading/loader";
-import Navbar2 from "@components/Navbar2";
-
-import {
-  Card,
-=======
 import PostCard from "@components/cards/PostCard";
 import Navbar2 from "@components/Navbar2";
 import Loader from "@components/loading/loader";
@@ -12,7 +5,6 @@ import Loader from "@components/loading/loader";
 import {
   Card,
 
->>>>>>> refs/remotes/origin/main
   CardDescription,
   CardHeader,
   CardTitle,

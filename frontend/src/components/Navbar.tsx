@@ -7,7 +7,7 @@ import {
 import { useEffect, useState } from "react";
 
 const Navbar = () => {
-  const [navbarOpacity, setNavbarOpacity] = useState<number>(0);
+  const [navbarOpacity, setNavbarOpacity] = useState<number>(85);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,7 +15,7 @@ const Navbar = () => {
       if (scrollPosition > 100) {
         setNavbarOpacity(85);
       } else {
-        setNavbarOpacity(0);
+        setNavbarOpacity(85);
       }
     };
 
