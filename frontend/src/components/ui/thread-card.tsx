@@ -1,5 +1,8 @@
 import React from "react";
-import { Thread } from "src/types/threads-type";
+import { Thread, ThreadFE } from "src/types/threads-type";
+import OnTrial from 'public/clock.png'
+import ComplaintFiled from 'public/danger-sign.png';
+import Concluded from 'public/correct.png';
 import {
   Tooltip,
   TooltipContent,
@@ -7,23 +10,31 @@ import {
   TooltipTrigger,
 } from "@components/ui/tooltip";
 import { useNavigate } from "react-router-dom";
+import { capitalizeEveryWord } from "@lib/services/formatter.service";
+import { BiSolidDownvote, BiSolidUpvote } from "react-icons/bi";
+import { RxChatBubble } from "react-icons/rx";
+import { Skeleton } from "./skeleton";
 
 interface ThreadCardProps {
-  thread: Thread;
+  thread: ThreadFE;
 }
 
+export const ThreadCardSkeleton = () =>{
+  return(
+      <Skeleton className='h-32 bg-gray-200 shadow-xl'>
+      </Skeleton>
+  );
+}
 const ThreadCard: React.FC<ThreadCardProps> = ({ thread }) => {
   const navigate = useNavigate();
-  const getStatusColor = (status: string | undefined) => {
-    switch (status) {
+  const getStatusImage = () => {
+    switch (thread.status) {
       case "complaint filed":
-        return "bg-red-500";
+        return ComplaintFiled;
       case "on trial":
-        return "bg-yellow-500";
+        return OnTrial;
       case "concluded":
-        return "bg-green-500";
-      default:
-        return "bg-gray-300";
+        return Concluded;
     }
   };
 
@@ -31,20 +42,32 @@ const ThreadCard: React.FC<ThreadCardProps> = ({ thread }) => {
     <TooltipProvider>
       <Tooltip>
         <TooltipTrigger asChild onClick={() => navigate(`/thread/${thread.threadId}`)}>
-          <div className="card bg-white shadow-xl m-1 border-2 px-11 py-5 flex justify-between items-center">
-            <div>
-              <h2 className="card-title text-xl mb-5">
-                {" "}
-                <div
-                  className={`w-4 h-4 rounded-full ${getStatusColor(
-                    thread.status
-                  )}`}
-                />
-                {thread.threadTitle}
-              </h2>
-              <p>{thread.status}</p>
-              <p>Upvotes: {thread?.upvotes?.length || 0}</p>
-              <p>Downvotes: {thread?.downvotes?.length || 0}</p>
+          <div className="card bg-white shadow-xl m-1 border-2 px-11 py-7 flex justify-between items-center cursor-pointer">
+            <div className="w-full">
+              <div className="card-title text-2xl mb-5 flex flex-row gap-1 justify-center items-center">
+                <img src={getStatusImage()} alt="" className="w-8 h-8"/>
+                {capitalizeEveryWord(thread.threadTitle)}
+              </div>
+              <div className="flex flex-row justify-center gap-6 w-full">
+                <div className="flex gap-1 items-center">
+                  <BiSolidUpvote className=" text-green-800 w-6 h-6"/>
+                  <span className="text-md text-gray-600">
+                    {thread.upvotes?.length || 0}
+                  </span>
+                </div>
+                <div className="flex gap-1 items-center">
+                  <BiSolidDownvote className="text-RedPrimary w-6 h-6"/>
+                  <span className="text-md text-gray-600">
+                    {thread.downvotes?.length || 0}
+                  </span>
+                </div>
+                <div className="flex gap-1 items-center">
+                  <RxChatBubble className="text- w-6 h-6"/>
+                  <span className="text-md text-gray-600">
+                    {thread.postCount || 0}
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </TooltipTrigger>

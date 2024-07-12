@@ -9,3 +9,7 @@ export const getFormattedTime = (timestamp: any) => {
 
   return formattedDate;
 };
+
+export function capitalizeEveryWord(input : string) {
+  return input.replace(/\b\w/g, char => char.toUpperCase());
+}

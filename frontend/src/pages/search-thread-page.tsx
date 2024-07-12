@@ -8,12 +8,13 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useRef } from "react";
 import { RiSpeakLine } from "react-icons/ri";
 import { IoSearch } from "react-icons/io5";
-import { Thread } from "src/types/threads-type";
-import ThreadCard from "@components/ui/thread-card";
+import { Thread, ThreadFE } from "src/types/threads-type";
+import ThreadCard, { ThreadCardSkeleton } from "@components/ui/thread-card";
+import { useMutation, useQuery } from "react-query";
 
 const SearchThread = () => {
   const {query} = useParams();
-  const [threads, setThreads] = useState<Thread[] | null>(null);
+  const [threads, setThreads] = useState<ThreadFE[] | null>(null);
   const words = [
     "Bribery",
     "Fraud",
@@ -85,19 +86,19 @@ const SearchThread = () => {
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
   };
-
-  useEffect(() => {
-    const fetchData = async () => {
-      if(query){
-        const data = await searchThread(query);
-        console.log(data);
-        
-        setThreads(data);
-      }
+  const {isLoading, isFetching} = useQuery(['fetchThread'],async() => {
+    if(query){
+      const data = await searchThread(query);
+      return data;
     }
-    fetchData();
-  }, [])
-
+  },{
+    onSuccess: (data : any) => {
+      setThreads(data)
+    },
+    onError: (error : Error) => {
+      console.error('Error fetching data', error.message)
+    }
+  })
   const navigate = useNavigate();
 
   return (
@@ -140,9 +141,19 @@ const SearchThread = () => {
       </div>
       {/* bagian hasil */}
       <div className="grid grid-cols-3 gap-4 p-4 mx-16">
-        {threads?.map((thread) => (
+        {(!isLoading && !isFetching) ? (threads?.map((thread) => (
           <ThreadCard key={thread.threadId} thread={thread} />
-        ))}
+        ))) : (
+          <>
+          {
+    
+            [1,2,3,4,5,6].map((index) => {
+              return <ThreadCardSkeleton key={index} />
+            })
+          }
+          </>
+        )}
+        
       </div>
     </div>
   );
