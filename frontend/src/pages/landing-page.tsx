@@ -1,13 +1,11 @@
 import Navbar from "@components/Navbar"
 import blurred from "@assets/homePageBackground.png"
-import "./Home.css"
+import "./landing-page.css"
 import { Button } from "@components/ui/button"
 
 const LandingPage = () => {
   return (
     <div className="bg-custom-radial-gradient w-screen h-screen border-content text-montserrat">
-      <Navbar/>
-
       {/* Blurred Image */}
       <div className="absolute overflow-y-hidden inset-0 flex justify-center items-center">
         <img src={blurred} alt="" className="absolute w-full h-full object-cover blur-lg opacity-75 rotate"/>
