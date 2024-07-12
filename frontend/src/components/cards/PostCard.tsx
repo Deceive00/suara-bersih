@@ -2,10 +2,8 @@ import { Card, CardDescription, CardHeader, CardTitle } from "@components/ui/car
 import VotingTooltip from "@components/ui/voting_tooltip";
 import { getFormattedTime } from "@lib/services/formatter.service";
 import { PostFE } from "src/types/posts-style";
-import { BiSolidUpvote, BiSolidDownvote } from "react-icons/bi";
 
-
-const PostCard = ({post} : {post : PostFE}) => {
+const PostCard = ({post, isLoading} : {post : PostFE, isLoading: boolean}) => {
   return (
     <Card className="rounded-md my-6">
       <CardHeader>
@@ -32,7 +30,7 @@ const PostCard = ({post} : {post : PostFE}) => {
           </div>
           <div className="flex justify-center items-center">
 
-            <VotingTooltip post={post} ></VotingTooltip>
+            <VotingTooltip isLoading={isLoading} post={post} ></VotingTooltip>
             
           </div>
         </div>

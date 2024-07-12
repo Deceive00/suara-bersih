@@ -18,7 +18,7 @@ function RouterComponent() {
   const location = useLocation();
 
   useEffect(() => {
-     signInWithEmailAndPassword(auth, "rian@gmail.com","rian1234");
+     signInWithEmailAndPassword(auth, "maverick@gmail.com","maverick1234");
     window.scrollTo(0, 0);
   }, [location]);
 
