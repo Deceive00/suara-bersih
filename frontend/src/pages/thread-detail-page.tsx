@@ -1,6 +1,7 @@
 import Navbar from "@components/Navbar";
 import { Badge } from "@components/ui/badge";
 import { Button } from "@components/ui/button";
+
 import {
   Card,
   CardContent,
@@ -12,16 +13,20 @@ import {
 } from "@components/ui/card";
 import { Input } from "@components/ui/input";
 import { Label } from "@components/ui/label";
+import ReferenceCard from "@components/ui/reference-card";
+import { Separator } from "@components/ui/separator";
 import StatsThread from "@components/ui/stats-thread";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@components/ui/tabs";
+import React from "react";
 
 const ThreadDetail = () => {
+
   return (
-    <div className="flex bg-slate-700 w-screen font-montserrat">
+    <div className="flex bg-white w-screen font-montserrat flex-row gap-x-8">
       <Navbar />
 
       {/* Thread Detail */}
-      <div className="mt-28 px-10 py-20 mx-64 grid bg-white rounded-2xl">
+      <div className="mt-16 pl-16 py-20 mx-auto grid bg-white rounded-2xl w-3/4">
         <a className="text-4xl text-black font-bold">
           Corruption Case Done In Some Country
         </a>
@@ -57,6 +62,18 @@ const ThreadDetail = () => {
             </Card>
           </TabsContent>
         </Tabs>
+      </div>
+
+      {/* Similiar Reference */}
+      <div className="w-1/4 mt-16 pr-16 text-montserrat font-bold">
+        <h3 className="text-left">RELATED REFERENCES</h3>
+
+        <Separator className="my-1" />
+
+        {/* Mapping of reference */}
+        <ReferenceCard />
+        <ReferenceCard />
+        <ReferenceCard />
       </div>
     </div>
   );

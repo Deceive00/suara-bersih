@@ -1,4 +1,10 @@
+import React from "react";
+
 const StatsThread = () => {
+  // State for count of tags and count of upvotes
+  const [tags, setTags] = React.useState(0);
+  const [upvotes, setUpvotes] = React.useState(0);
+
   return (
     <div className="stats shadow bg-WhiteSecondary text-montserrat">
       {/* Left Stats */}
@@ -22,7 +28,7 @@ const StatsThread = () => {
         {/* Desc */}
         <div>
           <div className="stat-title text-primary">Total Upvote</div>
-          <div className="stat-value w-auto text-green-600">8K</div>
+          <div className="stat-value w-auto text-green-600">{upvotes}</div>
           <div className="stat-desc w-auto text-primary">
             updated in real time
           </div>
@@ -52,7 +58,7 @@ const StatsThread = () => {
         {/* Desc */}
         <div>
           <div className="stat-title text-primary">Tags</div>
-          <div className="stat-value text-RedPrimary">24</div>
+          <div className="stat-value text-RedPrimary">{tags}</div>
           <div className="stat-desc text-primary">in this thread</div>
         </div>
       </div>
