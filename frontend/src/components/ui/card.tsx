@@ -1,7 +1,6 @@
 import * as React from "react"
 
 import { cn } from "@lib/utils"
-import { Tooltip } from "./tooltip";
 import VotingTooltip from "./voting_tooltip";
 
 
@@ -36,15 +35,10 @@ const PostCard = () => {
           </CardDescription>
           </div>
           <div className="flex justify-center items-center">
-<<<<<<< HEAD
-            {/* Up / Bottom Vote */}
-            <Tooltip></Tooltip>
-=======
 
 
             <VotingTooltip></VotingTooltip>
             {/* <Tooltip></Tooltip> */}
->>>>>>> refs/remotes/origin/main
             
           </div>
         </div>
