@@ -1,26 +1,43 @@
+import Loader from "@components/loading/loader";
 import Navbar from "@components/Navbar";
-import { Badge } from "@components/ui/badge";
-import { Button } from "@components/ui/button";
 
 import {
   Card,
-  CardContent,
+
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
   PostCard,
 } from "@components/ui/card";
-import { Input } from "@components/ui/input";
-import { Label } from "@components/ui/label";
 import ReferenceCard from "@components/ui/reference-card";
 import { Separator } from "@components/ui/separator";
 import StatsThread from "@components/ui/stats-thread";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@components/ui/tabs";
-import React from "react";
+import { getThreadById } from "@lib/services/threads.service";
+import { useState } from "react";
+import { useQuery } from "react-query";
+import { useParams } from "react-router-dom";
+import { Thread, ThreadFE } from "src/types/threads-type";
 
 const ThreadDetail = () => {
-
+  const {id} = useParams();
+  const [threads, setThreads] = useState<ThreadFE | null>(null);
+  const {isLoading, isFetching} = useQuery(['fetchAllThread'], async () => {
+    if(id){
+      const data = await getThreadById(id);
+      return data;
+    }
+  }, {
+    onError: (error : Error) => {
+      console.error('Error fetching data', error.message)
+    }, onSuccess: (data : ThreadFE) => {
+      console.log(data);
+      setThreads(data);
+    }
+  });
+  if(isLoading || isFetching){
+    return <Loader/>
+  }
   return (
     <div className="flex bg-white w-screen font-montserrat flex-row gap-x-8">
       <Navbar />

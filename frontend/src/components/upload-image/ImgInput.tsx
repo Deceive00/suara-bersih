@@ -8,7 +8,6 @@ interface ImageInputProp {
 }
 
 export function ImgInput({ value, onChange, defaultImages }: ImageInputProp) {
-  console.log(defaultImages)
   const [imageUrls, setImageUrls] = useState<(string | ArrayBuffer)[] | null>(defaultImages || null);
   useEffect(() => {
     if(defaultImages){
