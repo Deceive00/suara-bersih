@@ -35,7 +35,7 @@ const PostCard = () => {
           </CardDescription>
           </div>
           <div className="flex justify-center items-center">
-
+            {/* Up / Bottom Vote */}
             <Tooltip></Tooltip>
             
           </div>

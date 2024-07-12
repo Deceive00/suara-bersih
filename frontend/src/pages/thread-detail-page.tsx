@@ -1,11 +1,5 @@
-import Navbar from "@components/Navbar";
-<<<<<<< HEAD
-=======
 import Navbar2 from "@components/Navbar2";
-import { Badge } from "@components/ui/badge";
-import { Button } from "@components/ui/button";
 
->>>>>>> refs/remotes/origin/main
 import {
   Card,
   CardDescription,
