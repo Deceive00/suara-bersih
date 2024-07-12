@@ -1,6 +1,10 @@
 import Navbar from "@components/Navbar";
 import { Badge } from "@components/ui/badge";
+<<<<<<< HEAD
 import { Button } from "@components/ui/button";
+
+=======
+>>>>>>> refs/remotes/origin/main
 import {
   Card,
   CardContent,
@@ -8,50 +12,47 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
+  PostCard,
 } from "@components/ui/card";
 import { Input } from "@components/ui/input";
 import { Label } from "@components/ui/label";
+import ReferenceCard from "@components/ui/reference-card";
+import { Separator } from "@components/ui/separator";
+import StatsThread from "@components/ui/stats-thread";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@components/ui/tabs";
-import { BiSolidUpvote } from "react-icons/bi";
+import React from "react";
 
 const ThreadDetail = () => {
+
   return (
-    <div className="flex bg-gray-700 w-screen font-montserrat">
+    <div className="flex bg-white w-screen font-montserrat flex-row gap-x-8">
       <Navbar />
-      <div className="mt-28 px-10 py-20 mx-64 grid bg-white rounded-2xl">
-        <a className="text-4xl text-black mb-5 font-bold">
-          This is an example thread of a corruption case.
+
+      {/* Thread Detail */}
+      <div className="mt-16 pl-16 py-20 mx-auto grid bg-white rounded-2xl w-3/4">
+        <a className="text-4xl text-black font-bold">
+          Corruption Case Done In Some Country
         </a>
         <a className="text-md text-black mb-5 font-extralight">
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry.
         </a>
-        <div className="mb-5 pb-5 border-b-2">
+
+        <StatsThread></StatsThread>
+        {/* <div className="mb-5 pb-5 border-b-2">
           <Badge className="mx-1">Tag 1</Badge>
           <Badge className="mx-1">Tag 2</Badge>
           <Badge className="mx-1">Tag 3</Badge>
-        </div>
-        <Tabs defaultValue="posts" className="w-full">
+        </div> */}
+        {/* Tabs */}
+        <Tabs defaultValue="posts" className="w-full pt-4">
           <TabsList className="grid w-full grid-cols-2">
             <TabsTrigger value="posts">Posts</TabsTrigger>
             <TabsTrigger value="report">Report Status</TabsTrigger>
           </TabsList>
           <TabsContent value="posts">
-            <Card className="rounded-none">
-              <CardHeader>
-                <CardTitle className="text-md">User 1</CardTitle>
-                <CardDescription className="text-xs flex">
-                  <div className="w-11/12">
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book. It has survived not only five centuries
-                  </div>
-                  <div className="text-lg w-1/12 flex items-center"><BiSolidUpvote />200</div>
-                </CardDescription>
-              </CardHeader>
-            </Card>
+            <PostCard/>
+            <PostCard/>
           </TabsContent>
           <TabsContent value="report">
             <Card>
@@ -64,6 +65,18 @@ const ThreadDetail = () => {
             </Card>
           </TabsContent>
         </Tabs>
+      </div>
+
+      {/* Similiar Reference */}
+      <div className="w-1/4 mt-16 pr-16 text-montserrat font-bold">
+        <h3 className="text-left">RELATED REFERENCES</h3>
+
+        <Separator className="py-[1px] my-1 rounded-full bg-custom-radial-gradient" />
+
+        {/* Mapping of reference */}
+        <ReferenceCard />
+        <ReferenceCard />
+        <ReferenceCard />
       </div>
     </div>
   );

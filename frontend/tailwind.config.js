@@ -22,6 +22,7 @@ module.exports = {
         WhiteSecondary: '#F1F1F1',
         RedPrimary: '#8C0909',
         RedSecondary: '#E00E0E',
+        RedSmall : '#FFCAD4',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -83,5 +84,8 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    require('daisyui')
+  ],
 }

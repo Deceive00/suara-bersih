@@ -1,4 +1,4 @@
-import Home from '@pages/Home';
+import Home from '@pages/landing-page';
 import './App.css'
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';

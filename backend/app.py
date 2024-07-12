@@ -1,8 +1,12 @@
+import os
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 from controller.search import get_levenshtein_distance_post
 from controller.recommendation import get_title_recommendations
+
+from controller.model import get_transcribed_text
 from flask_cors import CORS
+
 app = Flask(__name__)
 CORS(app)
 
@@ -43,6 +47,32 @@ def handle_recommendations():
         return jsonify(data)
     
     except Exception as e:
+        return jsonify({'error': str(e)}), 500
+    
+
+@app.route('/transcribe', methods=['POST'])
+def transcribe():
+    try:
+        if 'file' not in request.files:
+            return jsonify({'error': 'No file part in request'}), 400
+        
+        file = request.files['file']
+        if file.filename == '':
+            return jsonify({'error': 'No selected file'}), 400
+        
+
+        audio_blob = file.read()
+        audio_path = os.path.join('./','uploaded_audio.mp3')
+        with open(audio_path, 'wb') as f:
+            f.write(audio_blob)
+
+        transcribed_text = get_transcribed_text(audio_path)
+        # os.remove("./output_audio.wav")
+
+        return jsonify({'transcription': transcribed_text})
+    
+    except Exception as e:
+        print(str(e)) 
         return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
