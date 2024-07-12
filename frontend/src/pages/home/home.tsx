@@ -9,31 +9,46 @@ const dummyNews: News[] = [
     newsId: "1",
     newsTitle: "New Technology Advances in 2024",
     newsDescription: "A deep dive into the latest technological advances that are shaping the future.",
-    newsReferenceLink: "https://example.com/technology-advances-2024"
+    newsReferenceLink: "https://example.com/technology-advances-2024",
+    newsImage: "",
+    tags : [""]
+    
   },
   {
     newsId: "2",
     newsTitle: "Climate Change and Its Impact",
     newsDescription: "An in-depth analysis of how climate change is affecting global weather patterns.",
-    newsReferenceLink: "https://example.com/climate-change-impact"
+    newsReferenceLink: "https://example.com/climate-change-impact",
+    newsImage: "",
+    tags : [""]
+    
   },
   {
     newsId: "3",
     newsTitle: "Economic Growth in Emerging Markets",
     newsDescription: "Exploring the economic growth trends in emerging markets and their global implications.",
-    newsReferenceLink: "https://example.com/economic-growth-emerging-markets"
+    newsReferenceLink: "https://example.com/economic-growth-emerging-markets",
+    newsImage: "",
+    tags : [""]
+    
   },
   {
     newsId: "4",
     newsTitle: "Advancements in AI and Machine Learning",
     newsDescription: "The latest breakthroughs in AI and machine learning and their potential applications.",
-    newsReferenceLink: "https://example.com/ai-machine-learning-advancements"
+    newsReferenceLink: "https://example.com/ai-machine-learning-advancements",
+    newsImage: "",
+    tags : [""]
+    
   },
   {
     newsId: "5",
     newsTitle: "Health and Wellness Trends in 2024",
     newsDescription: "A look at the top health and wellness trends that are gaining popularity in 2024.",
-    newsReferenceLink: "https://example.com/health-wellness-trends-2024"
+    newsReferenceLink: "https://example.com/health-wellness-trends-2024",
+    newsImage: "",
+    tags : [""]
+    
   }
 ];
 

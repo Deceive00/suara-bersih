@@ -23,7 +23,7 @@ import {
           </NavigationMenuItem>
           <NavigationMenuItem>
           <NavigationMenuLink className=" hover:text-slate-300" href="/search/thread/%20">
-              Threads
+              Threads 
             </NavigationMenuLink>
           </NavigationMenuItem>
           <NavigationMenuItem>
