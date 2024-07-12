@@ -1,21 +1,11 @@
 import Navbar from "@components/Navbar";
-import { Badge } from "@components/ui/badge";
-<<<<<<< HEAD
-import { Button } from "@components/ui/button";
-
-=======
->>>>>>> refs/remotes/origin/main
 import {
   Card,
-  CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
   PostCard,
 } from "@components/ui/card";
-import { Input } from "@components/ui/input";
-import { Label } from "@components/ui/label";
 import ReferenceCard from "@components/ui/reference-card";
 import { Separator } from "@components/ui/separator";
 import StatsThread from "@components/ui/stats-thread";

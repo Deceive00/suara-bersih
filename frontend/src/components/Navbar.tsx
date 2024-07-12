@@ -41,7 +41,7 @@ const Navbar = () => {
       {/* Middle Side */} 
       <NavigationMenuList className="flex space-x-10 items-center text-sm tracking-widest">
         <NavigationMenuItem>
-          <NavigationMenuLink className=" hover:text-slate-300" href="/">
+          <NavigationMenuLink className=" hover:text-slate-300" href="/home">
             Home
           </NavigationMenuLink>
         </NavigationMenuItem>

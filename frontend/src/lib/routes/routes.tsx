@@ -1,10 +1,7 @@
 import CreatePost from "@pages/create-post-page";
-<<<<<<< HEAD
+import Home from "@pages/home/home";
 import LandingPage from "@pages/landing-page";
-=======
-import Home from "@pages/Home";
 import SearchThread from "@pages/search-thread-page";
->>>>>>> refs/remotes/origin/main
 import TestMic from "@pages/test-mic/test-mic-page";
 import ThreadDetail from "@pages/thread-detail-page";
 
@@ -14,19 +11,23 @@ export const router = [
         element: <LandingPage />
     },
     {
-        path: "thread/detail/",
+        path: "/thread/detail/",
         element: <ThreadDetail/>
     },
     {
-        path: "createpost",
+        path: "/createpost",
         element : <CreatePost/>
     },
     {
-        path: "searchthread",
+        path: "/searchthread",
         element : <SearchThread/>
     },
     {
-        path: "mic",
+        path: "/mic",
         element : <TestMic/>
+    },
+    {
+        path: "/home",
+        element : <Home />
     }
 ]
