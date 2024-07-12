@@ -660,7 +660,7 @@ const Blackbox = () => {
   const currentItems = dummyData.slice(indexOfFirstItem, indexOfLastItem);
 
   return (
-    <div className="overflow-x-hidden min-h-screen w-screen bg-black text-white font-montserrat">
+    <div className="overflow-x-hidden min-h-screen w-full bg-black text-white font-montserrat">
       <Navbar />
       <div className="w-full px-12">
       <HeroParallax products={dummyData} />

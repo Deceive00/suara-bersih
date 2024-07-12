@@ -36,7 +36,7 @@ const VerticalNewsCard : React.FC<Props> = ({news}) => {
           </div>
 
           {/* Title */}
-          <h1 className="h-[40%] text-left font-bold py-2 text-xl text-primary">
+          <h1 className="h-24 text-left font-bold py-2 text-xl text-primary overflow-hidden text-ellipsis">
             {news.newsTitle}
           </h1>
 

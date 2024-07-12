@@ -54,16 +54,16 @@ const ThreadDetail = () => {
   }, []);
 
   return (
-    <div className="flex bg-white w-screen font-montserrat flex-row gap-x-8">
+    <div className="flex bg-white w-full font-montserrat flex-row gap-x-8">
       <Navbar2 />
 
       <div className="">
         <div className="mt-16 pl-16 py-20 mx-auto grid bg-white rounded-2xl w-4/5">
           <a className="text-4xl text-black font-bold">{thread?.threadTitle}</a>
-          <a className="text-md text-black mb-5 font-extralight">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry.
-          </a>
+          <a className="text-md text-black mb-5 mt-1 font-extralight">
+          
+          
+          PT Timah, Indonesia's top tin miner, faces a corruption probe. Accusations include illegal mining within their permits (2015-2022) causing huge environmental damage and economic losses (estimated Rp 271 trillion). Several high-profile figures are suspects.</a>
 
           <StatsThread thread={thread}></StatsThread>
           {/* Tabs */}

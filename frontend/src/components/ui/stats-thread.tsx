@@ -6,7 +6,7 @@ import { ThreadFE } from "src/types/threads-type";
 const StatsThread = ({thread} : {thread : ThreadFE | null}) => {
 
   return (
-    <div className="stats shadow text-montserrat w-1/2 mx-auto">
+    <div className="stats shadow text-montserrat mx-auto">
       {/* Left Stats */}
       <div className="stat w-full mx-auto py-4 flex justify-center items-center flex-row-reverse">
         {/* SVG */}

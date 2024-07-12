@@ -8,7 +8,7 @@ const LandingPage = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="bg-custom-radial-gradient w-screen h-screen border-content text-montserrat">
+    <div className="bg-custom-radial-gradient w-full h-screen border-content text-montserrat overflow-hidden ">
       {/* Blurred Image */}
       <div className="absolute overflow-y-hidden inset-0 flex justify-center items-center">
         <img src={blurred} alt="" className="absolute w-full h-full object-cover blur-lg opacity-75 rotate"/>

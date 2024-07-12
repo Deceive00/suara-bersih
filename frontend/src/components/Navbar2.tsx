@@ -48,7 +48,7 @@ import { useNavigate } from "react-router-dom";
               className="text-xs hover:text-slate-300 hover:border-slate-300 border-white border rounded-sm  px-5 py-2 tracking-widest"
               href="/create/post"
             >
-              +
+              + Post
             </NavigationMenuLink>
           </NavigationMenuItem>
         </NavigationMenuList>

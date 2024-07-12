@@ -3,7 +3,7 @@ import { Input } from "@components/ui/input";
 import { Controller } from "react-hook-form";
 import { MdCancel } from "react-icons/md";
 import { Thread } from "src/types/threads-type";
-
+import { FaMagic } from "react-icons/fa";
 export const ChooseThread = ({
   selectedThreadTitle,
   setSelectedThreadTitle,
@@ -40,7 +40,12 @@ export const ChooseThread = ({
           />
         )}
       />
-      <div className="flex flex-wrap flex-row gap-2 mt-4">
+
+      <div className="flex items-center gap-2 mt-4">
+      <FaMagic color="black" size={16}/>
+        <p className="text-black">Suggested threads</p>
+      </div>
+      <div className="flex flex-wrap flex-row gap-2 mt-2">
         {recommendation &&
           recommendation.map((thread: Thread, index: number) => (
             <div
@@ -57,10 +62,10 @@ export const ChooseThread = ({
                   setSelectedThreadTitle(thread.threadTitle);
                 }}
               >
-                {thread.threadTitle}
+                {thread?.threadTitle}
               </p>
 
-              {selectedRecommendation.threadTitle === thread.threadTitle && <MdCancel onClick={() => handleRemoveRecommendation()} />}
+              {selectedRecommendation && selectedRecommendation.threadTitle === thread?.threadTitle && <MdCancel onClick={() => handleRemoveRecommendation()} />}
             </div>
           ))}
       </div>

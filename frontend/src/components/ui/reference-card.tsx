@@ -17,12 +17,12 @@ const ReferenceCard = ({ news }: { news: News }) => {
       };
     
   return (
-    <div onClick={()=>{handleCardClick()}} className="flex flex-col mt-8 cursor-pointer">
+    <div onClick={()=>{handleCardClick()}} className="flex flex-col mt-8 cursor-pointer hover:underline">
       {/* Image */}
-      <div className="w-full h-[180px] bg-black rounded-md overflow-hidden">
+      <div className="w-full h-[120px] bg-black rounded-md overflow-hidden">
         <img src={news.newsImage || placeholder} alt="" className="w-full h-full object-cover" />
       </div>
-      <span className="text-left pt-2 font-semibold ">{truncateText(news.newsDescription, 10)}</span>
+      <span className="text-left pt-2 text-sm ">{truncateText(news.newsDescription, 10)}</span>
     </div>
   );
 };

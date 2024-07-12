@@ -73,7 +73,7 @@ const Home = () => {
   // Fetch Most Hot News
 
   return (
-    <div className="w-screen box-border bg-white text-montserrat overflow-x-hidden">
+    <div className="w-full box-border bg-white text-montserrat overflow-x-hidden">
       <Navbar />
 
       {news && (

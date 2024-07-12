@@ -44,7 +44,7 @@ const ThreadCard: React.FC<ThreadCardProps> = ({ thread }) => {
         <TooltipTrigger asChild onClick={() => navigate(`/thread/${thread.threadId}`)}>
           <div className="card bg-white shadow-xl m-1 border-2 px-11 py-7 flex justify-between items-center cursor-pointer">
             <div className="w-full">
-              <div className="card-title text-2xl mb-5 flex flex-row gap-1 justify-center items-center">
+              <div className="card-title text-xl mb-5 flex flex-row gap-1 justify-center items-center">
                 <img src={getStatusImage()} alt="" className="w-8 h-8"/>
                 {capitalizeEveryWord(thread.threadTitle)}
               </div>

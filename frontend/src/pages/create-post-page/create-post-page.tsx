@@ -30,6 +30,7 @@ const CreatePost = () => {
   useEffect(() => {
     signInWithEmailAndPassword(auth,"rian@gmail.com", 'rian1234')
   }, [])
+  
   const watchPostTitle = watch("postTitle");
   const {toast} = useToast();
   const [selectedThreadTitle, setSelectedThreadTitle] = useState("");
@@ -183,7 +184,7 @@ const CreatePost = () => {
         />
       );
     } else if (step.number === 3) {
-      return <ConfirmPost />;
+      return <ConfirmPost watch={watch} threadTitle={selectedThreadTitle}/>;
     }
   }
 
