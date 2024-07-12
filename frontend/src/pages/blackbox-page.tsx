@@ -660,9 +660,9 @@ const Blackbox = () => {
   const currentItems = dummyData.slice(indexOfFirstItem, indexOfLastItem);
 
   return (
-    <div className="min-h-screen bg-black text-white font-montserrat">
+    <div className="overflow-x-hidden min-h-screen w-screen bg-black text-white font-montserrat">
       <Navbar />
-      <div className=" px-80">
+      <div className="w-full px-12">
       <HeroParallax products={dummyData} />
         {currentItems.map((record, index) => (
           <div key={index} className="p-4 m-2 border-t shadow-md">

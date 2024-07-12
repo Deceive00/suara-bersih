@@ -102,7 +102,7 @@ export const HeroParallax = ({ products }: { products: Record[] }) => {
 
 export const Header = () => {
   return (
-    <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0">
+    <div className="max-w-7xl flex flex-col justify-center items-center relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0">
       <h1 className="text-2xl md:text-7xl font-bold dark:text-white">
         Welcome to  <br /> <a className="text-slate-800">Black</a> Box
       </h1>
