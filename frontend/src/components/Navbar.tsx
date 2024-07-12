@@ -46,13 +46,13 @@ const Navbar = () => {
           </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuLink className=" hover:text-slate-300" href="/createpost">
+          <NavigationMenuLink className=" hover:text-slate-300" href="/searchthread">
             Threads
           </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuLink className=" hover:text-slate-300" href="/">
-            News
+          <NavigationMenuLink className=" hover:text-slate-300" href="/createpost">
+            Create Post
           </NavigationMenuLink>
         </NavigationMenuItem>
       </NavigationMenuList>

@@ -1,7 +1,9 @@
 import * as React from "react"
 
 import { cn } from "@lib/utils"
-import Tooltip from "./tooltip";
+import { Tooltip } from "./tooltip";
+
+
 
 const PostCard = () => {
   return (
@@ -33,7 +35,7 @@ const PostCard = () => {
           </CardDescription>
           </div>
           <div className="flex justify-center items-center">
-            <Tooltip></Tooltip>
+            {/* <Tooltip></Tooltip> */}
           </div>
         </div>
       </CardHeader>
