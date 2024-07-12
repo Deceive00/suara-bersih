@@ -1,4 +1,3 @@
-import axios from "axios";
 import { collection, getDocs, query, updateDoc, where } from "firebase/firestore";
 import { addData } from "src/firebase/firebase-base-function";
 import { db } from "src/firebase/firebase-config";
@@ -18,7 +17,6 @@ export const createThread = async (threadTitle : string) => {
     userDownvotes: [],
     threadId: ''
   } as Thread;
-  console.log({...newThread});
   
   const threadRef = await addData("threads", {...newThread});
   newThread.threadId = threadRef.id
