@@ -3,7 +3,9 @@ import { Button } from "@components/ui/button";
 import { Input } from "@components/ui/input";
 import { Progress } from "@components/ui/progress";
 import { Textarea } from "@components/ui/textarea";
+import { time } from "console";
 import { useState } from "react";
+import { toast, Toaster } from "sonner";
 
 const PostDetails = () => {
   return (
@@ -17,11 +19,20 @@ const PostDetails = () => {
       </div>
       <div className="grid w-full gap-1.5 items-start mb-6">
         <div className="w-fit font-semibold">Title</div>
-        <Input className="text-black" type="text" id="title" placeholder="Title of your post" />
+        <Input
+          className="text-black"
+          type="text"
+          id="title"
+          placeholder="Title of your post"
+        />
       </div>
       <div className="grid w-full gap-1.5 items-start mb-6">
         <div className="w-fit font-semibold">Description</div>
-        <Textarea className="text-black" placeholder="Describe your opinion" id="message-2" />
+        <Textarea
+          className="text-black"
+          placeholder="Describe your opinion"
+          id="message-2"
+        />
         <p className="w-full text-sm text-muted-foreground">
           Some course topics can create controversy and debate. Be polite when
           posting your own comments, and be respectful to other poster's
@@ -92,39 +103,67 @@ const CreatePost = () => {
   return (
     <div className="bg-gray-700 w-screen h-screen text-white font-montserrat text-sm transition-all duration-700">
       <Navbar></Navbar>
-      <div className="pt-20 mx-16">
+      <div className="pt-20 mx-80">
         <div className="justify-between flex pb-5 text-orange-400">
           <a>Post Progress</a>
           <a>Step {step}/3</a>
           <a>{progressName}</a>
         </div>
-        <Progress value={progress} className="[&>*]:bg-orange-400 bg-gray-300 h-2 transition-all duration-700"/>
+        <Progress
+          value={progress}
+          className="[&>*]:bg-orange-400 bg-gray-300 h-2 transition-all duration-700"
+        />
         {step === 1 && <PostDetails />}
         {step === 2 && <ChooseThread />}
         {step === 3 && <ConfirmPost />}
         <div className="mt-5 flex space-x-2">
           {step > 1 && (
-            <Button className="bg-transparent" variant="outline" onClick={step === 2 ? handleStep1 : handleStep2Back}>
+            <Button
+              className="bg-transparent"
+              variant="outline"
+              onClick={step === 2 ? handleStep1 : handleStep2Back}
+            >
               Previous Step
             </Button>
           )}
           {step === 1 && (
-            <Button className="bg-white text-black" variant="outline" onClick={handleStep2}>
+            <Button
+              className="bg-white text-black"
+              variant="outline"
+              onClick={handleStep2}
+            >
               Next Step
             </Button>
           )}
           {step === 2 && (
-            <Button className="bg-white text-black" variant="outline" onClick={handleStep3}>
+            <Button
+              className="bg-white text-black"
+              variant="outline"
+              onClick={handleStep3}
+            >
               Next Step
             </Button>
           )}
           {step === 3 && (
-            <Button className="bg-white text-black" variant="outline">
+            <Button
+              className="bg-white text-black"
+              variant="outline"
+              onClick={() =>
+                toast("Post successfully created.", {
+                  description: "View Now",
+                  action: {
+                    label: "View Post",
+                    onClick: () => console.log("Confirm"),
+                  },
+                })
+              }
+            >
               Submit Post
             </Button>
           )}
         </div>
       </div>
+      <Toaster />
     </div>
   );
 };

@@ -6,11 +6,12 @@ def get_title_recommendations(postTitle : str, threads : list):
     for thread in threads:
         title = thread["threadTitle"]
         similiarity_score = local_alignment(postTitle, title)
-        ranked_threads.append((title, similiarity_score))
+        ranked_threads.append((thread, similiarity_score))
 
     ranked_threads.sort(key=lambda x: x[1],reverse=True)  
+    sorted_threads = [thread for thread, score in ranked_threads]
 
-    return ranked_threads
+    return sorted_threads
 
 
 
