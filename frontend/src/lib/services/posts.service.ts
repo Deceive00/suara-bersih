@@ -17,10 +17,10 @@ export const createPost = async ({newPost, threadTitle, threadId} : {newPost: In
 
   let currentThreadId = threadId;
   
-  console.log(threadTitle)
-  if(threadTitle){
+  if(!threadId && threadTitle){
     currentThreadId = await createThread(threadTitle)
   }
+  
   const {postImages, ...postWihtoutFile} = newPost;
   const post = {
     ...postWihtoutFile,
@@ -46,7 +46,6 @@ export const createPost = async ({newPost, threadTitle, threadId} : {newPost: In
     const path = `posts/${auth?.currentUser?.email}/${postRef.id}`;
     uploadedImages = await uploadMultiplePhoto(newPost.postImages, path);
   }
-  console.log(uploadedImages)
   post.postImages = uploadedImages
   await updateDoc(postRef, { ...post })
 }

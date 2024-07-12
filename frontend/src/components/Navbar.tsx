@@ -31,7 +31,7 @@ const Navbar = () => {
   };
 
   return (
-    <NavigationMenu
+    <NavigationMenu 
         style={navbarStyles}
       className={`z-50 fixed font-montserrat flex items-center justify-between p-4 px-16 text-white w-full bg-black transition-all duration-1000 ease-in-out`}
     >
