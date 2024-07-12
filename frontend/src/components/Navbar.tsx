@@ -46,7 +46,7 @@ const Navbar = () => {
           </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuLink className=" hover:text-slate-300" href="/searchthread">
+          <NavigationMenuLink className=" hover:text-slate-300" href="/create/thread/">
             Threads
           </NavigationMenuLink>
         </NavigationMenuItem>
