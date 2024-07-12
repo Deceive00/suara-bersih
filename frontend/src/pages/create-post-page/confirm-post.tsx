@@ -1,6 +1,6 @@
 export const ConfirmPost = () => {
   return (
-    <div className="grid mt-5 w-full">
+    <div className="grid mt-5 w-full text-primary">
       <div className="grid w-full gap-1.5 items-start mb-6">
         <h1 className="w-fit text-2xl weight font-semibold">Confirm Post</h1>
         <h1 className="w-fit text-md text-gray-400">

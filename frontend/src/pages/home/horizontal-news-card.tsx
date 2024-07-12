@@ -8,14 +8,14 @@ interface Props {
 
 const HorizontalNewsCard : React.FC<Props> = ({post}) => {
     return (
-        <div className="w-screen rounded-box py-4">
+        <div className="w-full rounded-box py-4">
         <div
           key={post.newsId}
           className="p-0 m-0 w-full h-[20rem] flex flex-row gap-x-8"
         >
           {/* Image */}
           <div className="carousel-item w-auto h-full rounded-lg overflow-hidden">
-            <img src={dummyPng} alt={post.newsTitle} className="rounded-box" />
+            <img src={post.newsImage} alt={post.newsTitle} className="rounded-box" />
           </div>
 
           <div className="w-full flex flex-col">
@@ -26,34 +26,32 @@ const HorizontalNewsCard : React.FC<Props> = ({post}) => {
                   <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
                 </div>
               </div>
-              <span className="text-md font-normal text-WhiteSecondary py-2">
+              <span className="text-md font-normal text-primary py-2">
                 CNN News &bull; 13 mins ago
               </span>
             </div>
 
             {/* Title */}
-            <h1 className="text-left font-bold text-4xl text-white h-1/4">
+            <h1 className="text-left font-bold text-4xl text-black h-1/2 max-w-full">
               {post.newsTitle}
             </h1>
 
             {/* Description */}
-            <span className="text-slate-100 text-justify h-2/4">
+            <span className="text-slate-700 text-justify h-2/4">
               {post.newsDescription}
             </span>
 
             {/* Tags Decoration */}
-            <div className="flex flex-row h-1/4 justify-start items-center gap-x-2">
-              <span className="font-bold text-md text-white">
-                HotTopics &bull;
-              </span>
-
-              <span className="font-bold text-md text-white">
-                Corruption &bull;
-              </span>
-
-              <span className="font-bold text-md text-white">
-                BerantasHabis! &bull;
-              </span>
+            <div className="flex flex-row h-1/4 justify-start items-center gap-x-2 text-RedPrimary">
+            
+              {post.tags.map((tag,index)=> {
+                return (
+                  
+                  <span className="font-bold text-md" key={tag}>{tag}{index === post.tags.length-1 ? '' : ' •'}</span>
+                )
+              })}
+              
+             
             </div>
           </div>
         </div>

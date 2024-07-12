@@ -7,7 +7,7 @@ import {
 import { useEffect, useState } from "react";
 
 const Navbar = () => {
-  const [navbarOpacity, setNavbarOpacity] = useState<number>(0);
+  const [navbarOpacity, setNavbarOpacity] = useState<number>(85);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,7 +15,7 @@ const Navbar = () => {
       if (scrollPosition > 100) {
         setNavbarOpacity(85);
       } else {
-        setNavbarOpacity(0);
+        setNavbarOpacity(85);
       }
     };
 
@@ -33,7 +33,7 @@ const Navbar = () => {
   return (
     <NavigationMenu 
         style={navbarStyles}
-      className={`z-50 fixed font-montserrat flex items-center justify-between p-4 px-16 text-white w-full bg-black transition-all duration-1000 ease-in-out`}
+      className={`z-50 fixed font-arsenalsc flex items-center justify-between p-4 px-16 text-white w-full bg-black transition-all duration-1000 ease-in-out`}
     >
       {/* Logo */}
       <div className="text-lg font-bold">SuaraBersih.</div>

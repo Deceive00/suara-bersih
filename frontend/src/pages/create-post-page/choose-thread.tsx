@@ -16,7 +16,7 @@ export const ChooseThread = ({
   return (
     <div className="grid mt-5 w-full">
       <div className="grid w-full gap-1.5 items-start mb-6">
-        <h1 className="w-fit text-2xl weight font-semibold">Choose a Thread</h1>
+        <h1 className="w-fit text-4xl weight font-semibold text-primary">Choose a Thread</h1>
         <h1 className="w-fit text-md text-gray-400">
           Select the appropriate thread for your post.
         </h1>
@@ -47,7 +47,7 @@ export const ChooseThread = ({
               key={index}
               className={`text-black rounded-md flex gap-2 cursor-pointer p-2 w-fit items-center transition-all duration-300 ${
                 selectedRecommendation?.threadId === thread.threadId
-                  ? "bg-orange-400 opacity-100"
+                  ? "bg-RedPrimary opacity-100 text-white"
                   : "bg-gray-100 opacity-70"
               }`}
             >
@@ -59,7 +59,8 @@ export const ChooseThread = ({
               >
                 {thread.threadTitle}
               </p>
-              <MdCancel onClick={() => handleRemoveRecommendation()} />
+
+              {selectedRecommendation.threadTitle === thread.threadTitle && <MdCancel onClick={() => handleRemoveRecommendation()} />}
             </div>
           ))}
       </div>
